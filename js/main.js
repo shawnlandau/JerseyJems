@@ -387,47 +387,7 @@ document.addEventListener('copy', function(e) {
     }
 });
 
-// Add custom tooltip on hover for the entire site
-document.addEventListener('DOMContentLoaded', function() {
-    // Create custom tooltip
-    const tooltip = document.createElement('div');
-    tooltip.className = 'custom-tooltip';
-    tooltip.textContent = 'From our shelves to your table';
-    tooltip.style.cssText = `
-        position: fixed;
-        background: #1B365D;
-        color: white;
-        padding: 8px 12px;
-        border-radius: 6px;
-        font-size: 14px;
-        font-family: 'Inter', sans-serif;
-        pointer-events: none;
-        opacity: 0;
-        z-index: 10000;
-        transition: opacity 0.3s ease;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        white-space: nowrap;
-    `;
-    document.body.appendChild(tooltip);
 
-    // Show tooltip on hover over main content areas
-    const contentAreas = document.querySelectorAll('section, .nav-brand, .footer');
-    
-    contentAreas.forEach(area => {
-        area.addEventListener('mouseenter', function(e) {
-            tooltip.style.opacity = '1';
-        });
-        
-        area.addEventListener('mousemove', function(e) {
-            tooltip.style.left = (e.clientX + 10) + 'px';
-            tooltip.style.top = (e.clientY - 30) + 'px';
-        });
-        
-        area.addEventListener('mouseleave', function() {
-            tooltip.style.opacity = '0';
-        });
-    });
-});
 
 // Utility functions
 function debounce(func, wait) {
