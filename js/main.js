@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
             position: fixed;
             top: 100px;
             right: 20px;
-            background: ${type === 'success' ? '#1B365D' : type === 'error' ? '#8B0000' : '#007bff'};
+            background: ${type === 'success' ? '#2E86AB' : type === 'error' ? '#A23B72' : '#F18F01'};
             color: white;
             padding: 1rem 1.5rem;
             border-radius: 8px;
@@ -325,7 +325,7 @@ document.addEventListener('DOMContentLoaded', function() {
         right: 30px;
         width: 50px;
         height: 50px;
-        background: linear-gradient(135deg, #1B365D, #2E5984);
+        background: linear-gradient(135deg, #2E86AB, #F18F01);
         color: white;
         border: none;
         border-radius: 50%;
@@ -365,27 +365,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add hover effects to back to top button
     backToTopButton.addEventListener('mouseenter', function() {
         this.style.transform = 'scale(1.1)';
-        this.style.background = 'linear-gradient(135deg, #2E5984, #1B365D)';
+        this.style.background = 'linear-gradient(135deg, #F18F01, #2E86AB)';
     });
     
     backToTopButton.addEventListener('mouseleave', function() {
         this.style.transform = 'scale(1)';
-        this.style.background = 'linear-gradient(135deg, #1B365D, #2E5984)';
+        this.style.background = 'linear-gradient(135deg, #2E86AB, #F18F01)';
     });
 
     // Console message for developers
-    console.log('%c🥖 Jersey Jems Website', 'color: #1B365D; font-size: 16px; font-weight: bold;');
-    console.log('%cBringing Northeast food excellence to Myrtle Beach!', 'color: #8B0000; font-size: 14px;');
+    console.log('%c🍝 Jersey Jems Website', 'color: #2E86AB; font-size: 16px; font-weight: bold;');
+    console.log('%cMaking Sunday dinner special in Myrtle Beach!', 'color: #A23B72; font-size: 14px;');
 });
 
-// Add custom copy text when someone copies from the site
-document.addEventListener('copy', function(e) {
-    const selection = window.getSelection().toString();
-    if (selection.length > 0) {
-        e.clipboardData.setData('text/plain', selection + '\n\n-- From our shelves to your table | Jersey Jems');
-        e.preventDefault();
-    }
-});
+
 
 
 
