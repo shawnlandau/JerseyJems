@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jersey Jems - Authentic Northeast Italian Cuisine | Myrtle Beach, SC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23d4af37" width="1200" height="800"/><text x="600" y="400" text-anchor="middle" font-size="48" fill="white" font-family="serif">Jersey Jems</text></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .logo {
+            max-width: 200px;
+            margin-bottom: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            color: #d4af37;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+        }
+        
+        .hero .description {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #8B0000;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: #d4af37;
+            margin: 1rem auto;
+        }
+        
+        /* Menu Section */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .menu-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+        
+        .menu-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.1rem;
+            border-bottom: 3px solid #d4af37;
+        }
+        
+        .menu-content {
+            padding: 1.5rem;
+        }
+        
+        .menu-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #8B0000;
+            margin-bottom: 0.5rem;
+        }
+        
+        .menu-description {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .menu-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #d4af37;
+        }
+        
+        .menu-badge {
+            background: #8B0000;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Features Section */
+        .features {
+            background: white;
+            padding: 4rem 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 10px;
+            background: #f9f9f9;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+        
+        .feature h3 {
+            color: #8B0000;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            background: #f8f8f8;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .step {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .step-number {
+            background: #8B0000;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .step h3 {
+            color: #8B0000;
+            margin-bottom: 1rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background: white;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .testimonial {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #d4af37;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: #8B0000;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #8B0000;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .footer a {
+            color: #d4af37;
+            text-decoration: none;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .hero .description {
+                font-size: 1rem;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Jersey Jems</h1>
+        <p class="subtitle">Smell the Bread, Taste the Tradition</p>
+        <p class="description">
+            Finally, authentic NY, NJ & Philly food down South. Pre-order authentic frozen specialties 
+            from legendary Northeast kitchens because you shouldn't have to drive 8 hours for a decent meal.
+        </p>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">👨‍🍳</div>
+                    <h3>Authentic Quality</h3>
+                    <p>From actual NY & NJ family kitchens, not factories</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📅</div>
+                    <h3>Easy Pickup</h3>
+                    <p>Pre-order and pick up on scheduled days</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⏰</div>
+                    <h3>Save Time</h3>
+                    <p>Restaurant-quality meals in 15 minutes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Our Authentic Italian Menu</h2>
+            <p style="text-align: center; font-size: 1.1rem; color: #666; margin-bottom: 2rem;">
+                35+ authentic Italian specialties from legendary Northeast family kitchens
+            </p>
+            
+            <div class="menu-grid">
+                <!-- Five Cheese Ravioli -->
+                <div class="menu-item">
+                    <img src="https://images.pexels.com/photos/5930586/pexels-photo-5930586.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                         alt="Five Cheese Ravioli" class="menu-image">
+                    <div class="menu-content">
+                        <span class="menu-badge">Customer Favorite</span>
+                        <h3 class="menu-title">Five Cheese Ravioli</h3>
+                        <p class="menu-description">
+                            Handcrafted ravioli filled with a blend of five authentic Italian cheeses. 
+                            Made with the same family recipe used in Brooklyn's finest Italian shops.
+                        </p>
+                        <div class="menu-price">$12.95 - $18.95</div>
+                    </div>
+                </div>
+
+                <!-- Spinach & Cheese Ravioli -->
+                <div class="menu-item">
+                    <div class="menu-image">
+                        Photo: Spinach & Cheese Ravioli<br>
+                        <small>Fresh spinach and ricotta filling</small>
+                    </div>
+                    <div class="menu-content">
+                        <span class="menu-badge">Vegetarian</span>
+                        <h3 class="menu-title">Spinach & Cheese Ravioli</h3>
+                        <p class="menu-description">
+                            Fresh spinach and creamy ricotta cheese wrapped in tender pasta. 
+                            A Northeast family favorite that brings back memories of Sunday dinners.
+                        </p>
+                        <div class="menu-price">$11.95 - $17.95</div>
+                    </div>
+                </div>
+
+                <!-- Penne alla Vodka -->
+                <div class="menu-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/PenneAllaVodka.jpg" 
+                         alt="Penne alla Vodka" class="menu-image">
+                    <div class="menu-content">
+                        <span class="menu-badge">Signature Dish</span>
+                        <h3 class="menu-title">Penne alla Vodka</h3>
+                        <p class="menu-description">
+                            The legendary New Jersey creation! Penne pasta in our rich, creamy vodka tomato sauce. 
+                            "The vodka sauce is incredible!" - Anthony D., Philadelphia native
+                        </p>
+                        <div class="menu-price">$13.95 - $19.95</div>
+                    </div>
+                </div>
+
+                <!-- Italian Sausage -->
+                <div class="menu-item">
+                    <div class="menu-image">
+                        Photo: Authentic Italian Sausage<br>
+                        <small>Sweet & Hot varieties available</small>
+                    </div>
+                    <div class="menu-content">
+                        <span class="menu-badge">Made Fresh Daily</span>
+                        <h3 class="menu-title">Italian Sausage Links</h3>
+                        <p class="menu-description">
+                            Traditional sweet and hot Italian sausage made with authentic spice blends. 
+                            "The sausage tastes like home!" - Customer from South Jersey
+                        </p>
+                        <div class="menu-price">$8.95 - $14.95</div>
+                    </div>
+                </div>
+
+                <!-- Fresh Pasta -->
+                <div class="menu-item">
+                    <img src="https://images.pexels.com/photos/12214722/pexels-photo-12214722.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                         alt="Fresh Italian Pasta" class="menu-image">
+                    <div class="menu-content">
+                        <span class="menu-badge">Pasta of the Day</span>
+                        <h3 class="menu-title">Fresh Italian Pasta</h3>
+                        <p class="menu-description">
+                            Made-from-scratch linguine, fettuccine, and spaghetti. Available Tuesday-Friday. 
+                            Pairs perfectly with our homemade marinara or vodka sauce.
+                        </p>
+                        <div class="menu-price">$4.30 - $8.95</div>
+                    </div>
+                </div>
+
+                <!-- Italian Meatballs -->
+                <div class="menu-item">
+                    <div class="menu-image">
+                        Photo: Italian Meatballs & Marinara<br>
+                        <small>Grandmother's secret recipe</small>
+                    </div>
+                    <div class="menu-content">
+                        <span class="menu-badge">Family Recipe</span>
+                        <h3 class="menu-title">Italian Meatballs & Marinara</h3>
+                        <p class="menu-description">
+                            Hand-rolled meatballs made with beef, pork, and authentic Italian seasonings. 
+                            Served with our signature marinara sauce that's been perfected over generations.
+                        </p>
+                        <div class="menu-price">$15.95 - $25.60</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: #f9f9f9; border-radius: 10px;">
+                <h3 style="color: #8B0000; margin-bottom: 1rem;">Complete Menu Available</h3>
+                <p style="color: #666; font-size: 1.1rem;">
+                    Our full selection includes over 35 authentic Italian specialties including lasagna, 
+                    stuffed shells, manicotti, gnocchi, and seasonal specialties. 
+                    <strong>All items available fresh or frozen with 18-hour advance notice.</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works section">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Browse Our Menu</h3>
+                    <p>Explore 35+ authentic Italian specialties from legendary Northeast family kitchens</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Choose Pickup Date</h3>
+                    <p>Select your preferred pickup date and time. We recommend ordering 24-48 hours ahead</p>
+                    <small style="color: #d4af37; font-weight: bold;">Pickup: Fri-Sun, 2PM-6PM</small>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Secure Payment</h3>
+                    <p>Pay online with credit card or arrange cash payment at pickup. Get instant confirmation</p>
+                    <small style="color: #d4af37; font-weight: bold;">Safe & Secure Checkout</small>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Pickup & Enjoy</h3>
+                    <p>Pick up your order at our Myrtle Beach location. Comes with reheating instructions</p>
+                    <small style="color: #d4af37; font-weight: bold;">Ready in 15 minutes from frozen</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "Finally! Authentic Italian food that reminds me of my grandmother's cooking in Brooklyn. 
+                        The ravioli is exactly like what we used to get from the family shop on 86th Street."
+                    </p>
+                    <div class="testimonial-author">- Lisa M., South Jersey expat</div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "Been looking for decent Italian food since we moved here from Jersey. 
+                        Jersey Jems delivers exactly what we've been missing. The sausage tastes like home!"
+                    </p>
+                    <div class="testimonial-author">- Customer from New Jersey</div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "The vodka sauce is incredible! My Philly relatives visited and couldn't believe we found 
+                        authentic Italian food this good down South. Ordering became our weekly tradition."
+                    </p>
+                    <div class="testimonial-author">- Anthony D., Philadelphia native</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Jersey Jems. Bringing authentic Northeast Italian cuisine to Myrtle Beach.</p>
+            <p>Contact us: <a href="mailto:info@jerseyjems.com">info@jerseyjems.com</a> | <a href="tel:843-555-JEMS">(843) 555-JEMS</a></p>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">
+                Pickup Location: Myrtle Beach, SC | Hours: Fri-Sun, 2PM-6PM | Order 24-48 hours in advance
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
