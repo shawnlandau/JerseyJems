@@ -411,3 +411,84 @@ const debouncedScrollHandler = debounce(function() {
 }, 10);
 
 window.addEventListener('scroll', debouncedScrollHandler);
+
+// Shopping Cart Functionality
+let cart = [];
+
+// Add item to cart
+function addToCart(id, name, price) {
+    const existingItem = cart.find(item => item.id === id);
+    
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({
+            id: id,
+            name: name,
+            price: price,
+            quantity: 1
+        });
+    }
+    
+    updateCartDisplay();
+    showCartNotification(name);
+}
+
+// Update cart display (basic version for homepage)
+function updateCartDisplay() {
+    const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+    console.log(`Cart updated: ${cartCount} items`);
+    
+    // You can add visual cart indicator here if needed
+    // For now, we'll just show in console and via notifications
+}
+
+// Show cart notification
+function showCartNotification(itemName) {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        background: #4CAF50;
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        z-index: 1000;
+        transform: translateX(400px);
+        transition: transform 0.3s ease;
+        font-weight: 500;
+    `;
+    notification.innerHTML = `
+        <i class="fas fa-check-circle" style="margin-right: 0.5rem;"></i>
+        ${itemName} added to cart!
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Animate in
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    // Animate out and remove
+    setTimeout(() => {
+        notification.style.transform = 'translateX(400px)';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 3000);
+}
+
+// Get cart contents (for menu page integration)
+function getCart() {
+    return cart;
+}
+
+// Clear cart
+function clearCart() {
+    cart = [];
+    updateCartDisplay();
+}

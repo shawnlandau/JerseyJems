@@ -168,37 +168,30 @@
         }
 
         .product-image {
-            height: 180px;
+            height: 220px;
             overflow: hidden;
             position: relative;
             background: linear-gradient(135deg, var(--background-cream), #f5f5f5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
         }
 
-        .category-icon {
+        .fallback-icon {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 100%;
             height: 100%;
-            font-size: 4rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .product-card:hover .category-icon {
-            transform: scale(1.1);
-        }
-        
-        .category-icon i {
-            opacity: 0.8;
-            transition: all 0.3s ease;
-        }
-        
-        .product-card:hover .category-icon i {
-            opacity: 1;
-            transform: rotate(5deg);
+            background: linear-gradient(135deg, var(--background-cream), #f5f5f5);
         }
 
         .product-card:hover .product-image img {
@@ -654,7 +647,7 @@
     </footer>
 
     <script>
-        // Menu Data with Category Icons - Clean, Fast Loading Design
+        // Menu Data with High-Quality Food Photography
         const menuItems = [
             // FRESH RAVIOLI COLLECTION
             {
@@ -1027,6 +1020,54 @@
             }
         ];
 
+        // Get product image based on item details
+        function getProductImage(item) {
+            // Default images based on category and specific items
+            const imageMap = {
+                // Ravioli items
+                'Half Moon Ravioli': 'https://images.unsplash.com/photo-1587740908075-9e245070dfaa?w=400&h=300&fit=crop&auto=format&q=85',
+                'Jumbo Ravioli': 'https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop&auto=format&q=85',
+                'Spinach & Cheese Ravioli': 'https://images.unsplash.com/photo-1604909052743-94e838986d24?w=400&h=300&fit=crop&auto=format&q=85',
+                'Five Cheese Ravioli': 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&h=300&fit=crop&auto=format&q=85',
+                'Lobster Ravioli': 'https://images.unsplash.com/photo-1563379091339-03246963d7d3?w=400&h=300&fit=crop&auto=format&q=85',
+                'Broccoli Rabe Ravioli': 'https://images.unsplash.com/photo-1604909052743-94e838986d24?w=400&h=300&fit=crop&auto=format&q=85',
+                
+                // Fresh Pasta items
+                'Fresh Spaghetti': 'https://images.unsplash.com/photo-1516100882582-96c3a05fe590?w=400&h=300&fit=crop&auto=format&q=85',
+                'Angel Hair Pasta': 'https://images.unsplash.com/photo-1551462147-37abc2011f97?w=400&h=300&fit=crop&auto=format&q=85',
+                'Fresh Linguine': 'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=400&h=300&fit=crop&auto=format&q=85',
+                'Fresh Fettuccine': 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400&h=300&fit=crop&auto=format&q=85',
+                'Potato Gnocchi': 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&auto=format&q=85',
+                'Cheese Gnocchi': 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&auto=format&q=85',
+                'Cheese Tortellini': 'https://images.unsplash.com/photo-1555507036-ab794f77665a?w=400&h=300&fit=crop&auto=format&q=85',
+                'Fresh Lasagna Sheets': 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400&h=300&fit=crop&auto=format&q=85',
+                'Manicotti Shells': 'https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?w=400&h=300&fit=crop&auto=format&q=85',
+                
+                // Ready-to-Bake items
+                'Family Lasagna': 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400&h=300&fit=crop&auto=format&q=85',
+                'Party Lasagna': 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400&h=300&fit=crop&auto=format&q=85',
+                'Stuffed Shells': 'https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?w=400&h=300&fit=crop&auto=format&q=85',
+                'Baked Ziti Tray': 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop&auto=format&q=85',
+                
+                // Sausage items
+                'Sweet Italian Sausage': 'https://images.unsplash.com/photo-1606728035253-49e8a23146de?w=400&h=300&fit=crop&auto=format&q=85',
+                'Hot Italian Sausage': 'https://images.unsplash.com/photo-1606728035253-49e8a23146de?w=400&h=300&fit=crop&auto=format&q=85',
+                'Bulk Italian Sausage': 'https://images.unsplash.com/photo-1559557831-1a41a2b64901?w=400&h=300&fit=crop&auto=format&q=85',
+                
+                // Sauce items
+                'Homemade Marinara': 'https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?w=400&h=300&fit=crop&auto=format&q=85',
+                'Vodka Sauce': 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop&auto=format&q=85',
+                'Rose Sauce': 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop&auto=format&q=85',
+                'Roasted Red Pepper Sauce': 'https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=400&h=300&fit=crop&auto=format&q=85',
+                'Meat Sauce': 'https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?w=400&h=300&fit=crop&auto=format&q=85',
+                'Pesto Sauce': 'https://images.unsplash.com/photo-1505253758473-96b7015fcd40?w=400&h=300&fit=crop&auto=format&q=85',
+                'Alfredo Sauce': 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop&auto=format&q=85',
+                'Gourmet Meatballs': 'https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop&auto=format&q=85'
+            };
+            
+            return imageMap[item.name] || 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop&auto=format&q=85';
+        }
+
         // Shopping Cart
         let cart = [];
 
@@ -1068,41 +1109,12 @@
                 `<span class="badge ${badge}">${badge}</span>`
             ).join('');
 
-            // Determine icon based on category
-            let categoryIcon = 'fas fa-utensils';
-            let categoryColor = '#B22222';
-            
-            switch(item.category) {
-                case 'ravioli':
-                    categoryIcon = 'fas fa-square';
-                    categoryColor = '#D2691E';
-                    break;
-                case 'pasta':
-                    categoryIcon = 'fas fa-scroll';
-                    categoryColor = '#FF6347';
-                    break;
-                case 'sauce':
-                    categoryIcon = 'fas fa-wine-bottle';
-                    categoryColor = '#8B4513';
-                    break;
-                case 'sausage':
-                    categoryIcon = 'fas fa-drumstick-bite';
-                    categoryColor = '#B22222';
-                    break;
-                case 'baked':
-                    categoryIcon = 'fas fa-fire';
-                    categoryColor = '#FF4500';
-                    break;
-                default:
-                    categoryIcon = 'fas fa-utensils';
-                    categoryColor = '#B22222';
-            }
+            // Get product image based on item
+            let productImage = getProductImage(item);
 
             card.innerHTML = `
                 <div class="product-image">
-                    <div class="category-icon">
-                        <i class="${categoryIcon}" style="color: ${categoryColor};"></i>
-                    </div>
+                    <img src="${productImage}" alt="${item.alt}" loading="lazy" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\"fallback-icon\"><i class=\"fas fa-utensils\" style=\"font-size: 3rem; color: #B22222;\"></i></div>';">
                     <div class="product-badges">${badges}</div>
                 </div>
                 <div class="product-info">

@@ -1680,3 +1680,121 @@ img {
         font-size: 2rem;
     }
 }
+
+/* Featured Items Enhancements */
+.featured-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.featured-item {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
+    border: 1px solid var(--cream);
+}
+
+.featured-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-medium);
+}
+
+.featured-item .item-image {
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.featured-item .item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.featured-item:hover .item-image img {
+    transform: scale(1.05);
+}
+
+.featured-item .item-details {
+    padding: 2rem;
+}
+
+.featured-item .item-details h3 {
+    font-size: 1.4rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
+}
+
+.featured-item .item-description {
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.featured-item .item-size {
+    color: var(--accent-color);
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.featured-item .item-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.featured-item .item-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: var(--font-heading);
+}
+
+.add-to-cart-btn {
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+.add-to-cart-btn:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.add-to-cart-btn:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .featured-items {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .featured-item .item-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    
+    .add-to-cart-btn {
+        width: 100%;
+        padding: 1rem;
+    }
+}
