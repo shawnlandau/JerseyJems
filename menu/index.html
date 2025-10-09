@@ -3,199 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complete Menu - Jersey Jems | 35+ Authentic Italian Specialties</title>
+    <title>Complete Menu - Jersey Jems | Authentic Italian Specialties</title>
     <meta name="description" content="Browse Jersey Jems' complete menu of 35+ authentic Italian specialties. Fresh ravioli, handmade pasta, gourmet sauces, and more. Pre-order for pickup in Myrtle Beach.">
-    <meta name="keywords" content="Italian menu, fresh ravioli, handmade pasta, authentic Italian food, Myrtle Beach takeout, pre-order Italian food">
-    
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://jerseyjems.com/menu/">
-    <meta property="og:title" content="Complete Menu - Jersey Jems">
-    <meta property="og:description" content="35+ authentic Italian specialties from Northeast family kitchens. Fresh ravioli, handmade pasta, gourmet sauces, and more.">
     
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='30' fill='%23B22222'>JJ</text></svg>">
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/style.css">
+    
     <style>
-        /* Menu-specific styles */
+        /* Menu Page Specific Styles */
         body {
             padding-top: 80px;
+            background-color: var(--background-cream);
         }
-        
-        /* Menu Hero Section */
+
+        /* Hero Section */
         .menu-hero {
-            height: 50vh;
-            background: url('https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=1920&h=1080&fit=crop&crop=center&q=85') center/cover;
+            height: 40vh;
+            background: linear-gradient(rgba(178, 34, 34, 0.8), rgba(210, 105, 30, 0.7)), 
+                        url('https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=1920&h=800&fit=crop&q=85') center/cover;
             display: flex;
             align-items: center;
-            position: relative;
-            color: var(--white);
-            background-color: var(--primary-color);
-        }
-        
-        .menu-hero .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(
-                135deg, 
-                rgba(178, 34, 34, 0.8) 0%,
-                rgba(210, 105, 30, 0.7) 100%
-            );
-        }
-        
-        .menu-hero .hero-content {
-            position: relative;
-            z-index: 2;
+            justify-content: center;
+            color: white;
             text-align: center;
         }
-        
-        /* Filter and Search Section */
+
+        .menu-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-family: var(--font-heading);
+        }
+
+        .menu-hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Controls Section */
         .menu-controls {
-            background: var(--white);
+            background: white;
             padding: 2rem 0;
-            box-shadow: var(--shadow-light);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 80px;
             z-index: 100;
         }
-        
-        .menu-controls .container {
+
+        .controls-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 1.5rem;
         }
-        
+
         .filter-buttons {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
         }
-        
+
         .filter-btn {
-            padding: 0.5rem 1rem;
+            padding: 0.7rem 1.5rem;
             border: 2px solid var(--primary-color);
             background: transparent;
             color: var(--primary-color);
             border-radius: 25px;
             cursor: pointer;
-            transition: var(--transition);
             font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
         }
-        
-        .filter-btn.active,
-        .filter-btn:hover {
+
+        .filter-btn:hover,
+        .filter-btn.active {
             background: var(--primary-color);
-            color: var(--white);
+            color: white;
+            transform: translateY(-2px);
         }
-        
-        .search-box {
+
+        .search-container {
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
-        
+
         .search-input {
-            padding: 0.5rem 1rem;
-            border: 2px solid var(--cream);
+            padding: 0.7rem 1rem;
+            border: 2px solid #e0e0e0;
             border-radius: 25px;
-            font-size: 1rem;
             outline: none;
-            transition: var(--transition);
+            font-size: 1rem;
+            width: 250px;
+            transition: border-color 0.3s ease;
         }
-        
+
         .search-input:focus {
             border-color: var(--primary-color);
         }
-        
-        .cart-summary {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .cart-btn {
+
+        .cart-toggle {
             position: relative;
             background: var(--primary-color);
-            color: var(--white);
+            color: white;
             border: none;
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
             cursor: pointer;
-            transition: var(--transition);
-            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            font-size: 1.3rem;
         }
-        
-        .cart-btn:hover {
+
+        .cart-toggle:hover {
             transform: scale(1.1);
         }
-        
+
         .cart-count {
             position: absolute;
-            top: -5px;
-            right: -5px;
+            top: -8px;
+            right: -8px;
             background: var(--accent-color);
-            color: var(--white);
+            color: white;
             border-radius: 50%;
-            width: 20px;
-            height: 20px;
+            width: 25px;
+            height: 25px;
             font-size: 0.8rem;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
         }
-        
+
         /* Product Grid */
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 2rem;
             padding: 3rem 0;
         }
-        
+
         /* Product Cards */
         .product-card {
-            background: var(--white);
-            border-radius: 20px;
+            background: white;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: var(--shadow-light);
-            transition: var(--transition);
-            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
         }
-        
+
         .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-medium);
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
-        
+
         .product-image {
-            height: 200px;
-            background: linear-gradient(135deg, var(--background-cream), var(--light-bg));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            position: relative;
+            height: 220px;
             overflow: hidden;
+            position: relative;
+            background: #f8f8f8;
         }
-        
+
         .product-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease;
         }
-        
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
         .product-badges {
             position: absolute;
             top: 10px;
@@ -204,91 +189,94 @@
             flex-direction: column;
             gap: 5px;
         }
-        
+
         .badge {
-            padding: 0.25rem 0.5rem;
+            padding: 0.3rem 0.7rem;
             border-radius: 15px;
             font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
-        }
-        
-        .badge.vegetarian {
-            background: #4CAF50;
             color: white;
         }
-        
+
         .badge.popular {
             background: var(--accent-color);
-            color: white;
         }
-        
+
+        .badge.vegetarian {
+            background: #4CAF50;
+        }
+
         .product-info {
             padding: 1.5rem;
         }
-        
+
         .product-title {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 600;
             color: var(--text-dark);
             margin-bottom: 0.5rem;
             font-family: var(--font-heading);
+            line-height: 1.3;
         }
-        
+
         .product-description {
-            color: var(--text-light);
+            color: #666;
             margin-bottom: 1rem;
-            font-size: 0.9rem;
-            line-height: 1.5;
+            font-size: 0.95rem;
+            line-height: 1.4;
         }
-        
+
         .product-details {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #f0f0f0;
         }
-        
+
         .product-size {
-            color: #999;
+            color: #888;
             font-size: 0.85rem;
             font-style: italic;
         }
-        
+
         .product-price {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary-color);
             font-family: var(--font-heading);
         }
-        
+
         .product-actions {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 1rem;
         }
-        
+
         .quantity-selector {
             display: flex;
             align-items: center;
-            border: 2px solid var(--cream);
+            border: 2px solid #e0e0e0;
             border-radius: 25px;
             overflow: hidden;
         }
-        
+
         .quantity-btn {
-            background: var(--light-bg);
+            background: #f8f8f8;
             border: none;
-            padding: 0.5rem;
+            padding: 0.5rem 0.8rem;
             cursor: pointer;
-            transition: var(--transition);
+            font-weight: bold;
+            transition: background 0.3s ease;
         }
-        
+
         .quantity-btn:hover {
             background: var(--primary-color);
-            color: var(--white);
+            color: white;
         }
-        
+
         .quantity-input {
             border: none;
             padding: 0.5rem;
@@ -296,33 +284,33 @@
             text-align: center;
             background: transparent;
             outline: none;
+            font-weight: 500;
         }
-        
+
         .add-to-cart {
             flex: 1;
             background: var(--primary-color);
-            color: var(--white);
+            color: white;
             border: none;
-            padding: 0.75rem 1rem;
+            padding: 0.8rem 1.2rem;
             border-radius: 25px;
             cursor: pointer;
             font-weight: 600;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            font-size: 0.9rem;
         }
-        
+
         .add-to-cart:hover {
             background: var(--accent-color);
-            transform: scale(1.02);
+            transform: translateY(-2px);
         }
-        
-        .add-to-cart:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
+
+        .add-to-cart.added {
+            background: #4CAF50;
         }
-        
+
         /* Cart Modal */
         .cart-modal {
             display: none;
@@ -336,13 +324,13 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         .cart-modal.active {
             display: flex;
         }
-        
+
         .cart-content {
-            background: var(--white);
+            background: white;
             border-radius: 20px;
             padding: 2rem;
             max-width: 600px;
@@ -350,59 +338,91 @@
             max-height: 80vh;
             overflow-y: auto;
         }
-        
+
         .cart-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             padding-bottom: 1rem;
-            border-bottom: 2px solid var(--cream);
+            border-bottom: 2px solid #f0f0f0;
         }
-        
+
+        .cart-header h2 {
+            color: var(--text-dark);
+            font-family: var(--font-heading);
+        }
+
         .close-cart {
             background: none;
             border: none;
-            font-size: 1.5rem;
+            font-size: 2rem;
             cursor: pointer;
-            color: var(--text-light);
+            color: #999;
+            transition: color 0.3s ease;
         }
-        
-        .cart-items {
-            margin-bottom: 1.5rem;
+
+        .close-cart:hover {
+            color: var(--primary-color);
         }
-        
+
         .cart-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 0;
-            border-bottom: 1px solid var(--cream);
+            border-bottom: 1px solid #f0f0f0;
         }
-        
-        .cart-item-info {
-            flex: 1;
+
+        .cart-item:last-child {
+            border-bottom: none;
         }
-        
+
+        .cart-item-info h4 {
+            color: var(--text-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .cart-item-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .remove-item {
+            background: #ff4444;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: background 0.3s ease;
+        }
+
+        .remove-item:hover {
+            background: #cc0000;
+        }
+
         .cart-total {
             text-align: center;
-            margin-top: 1rem;
+            margin-top: 2rem;
             padding-top: 1rem;
             border-top: 2px solid var(--primary-color);
         }
-        
+
         .total-price {
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 700;
             color: var(--primary-color);
+            font-family: var(--font-heading);
         }
-        
+
         .checkout-btn {
             width: 100%;
             background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: var(--white);
+            color: white;
             border: none;
-            padding: 1rem;
+            padding: 1.2rem;
             border-radius: 25px;
             font-size: 1.1rem;
             font-weight: 600;
@@ -410,65 +430,68 @@
             margin-top: 1rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            transition: var(--transition);
+            transition: transform 0.3s ease;
         }
-        
+
         .checkout-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-medium);
-        }
-        
-        /* Cross-sell Recommendations */
-        .recommendations {
-            background: var(--light-bg);
-            padding: 3rem 0;
-        }
-        
-        .recommendation-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .recommendation-card {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: var(--shadow-light);
-            transition: var(--transition);
-        }
-        
-        .recommendation-card:hover {
             transform: translateY(-3px);
         }
-        
+
+        .empty-cart {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
-            .menu-controls .container {
+            .menu-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .controls-container {
                 flex-direction: column;
                 align-items: stretch;
             }
-            
+
             .filter-buttons {
                 justify-content: center;
+                flex-wrap: wrap;
             }
-            
+
+            .search-input {
+                width: 100%;
+            }
+
             .menu-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
                 padding: 2rem 0;
             }
-            
+
             .product-actions {
                 flex-direction: column;
                 gap: 1rem;
             }
-            
-            .quantity-selector {
-                align-self: stretch;
-                justify-content: center;
+
+            .cart-content {
+                width: 95%;
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .filter-btn {
+                font-size: 0.8rem;
+                padding: 0.5rem 1rem;
+            }
+
+            .product-title {
+                font-size: 1.2rem;
+            }
+
+            .product-price {
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -498,37 +521,33 @@
 
     <!-- Menu Hero Section -->
     <section class="menu-hero">
-        <div class="hero-overlay"></div>
         <div class="container">
-            <div class="hero-content">
-                <h1>Complete Menu</h1>
-                <p class="hero-subtitle">35+ Authentic Italian Specialties from Northeast Family Kitchens</p>
-            </div>
+            <h1>Complete Menu</h1>
+            <p>35+ Authentic Italian Specialties from Northeast Family Kitchens</p>
         </div>
     </section>
 
     <!-- Menu Controls -->
     <section class="menu-controls">
         <div class="container">
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">All Items</button>
-                <button class="filter-btn" data-filter="ravioli">Ravioli</button>
-                <button class="filter-btn" data-filter="pasta">Fresh Pasta</button>
-                <button class="filter-btn" data-filter="sauce">Sauces & Meatballs</button>
-                <button class="filter-btn" data-filter="sausage">Italian Sausage</button>
-                <button class="filter-btn" data-filter="baked">Ready-to-Bake</button>
-                <button class="filter-btn" data-filter="vegetarian">Vegetarian</button>
-            </div>
-            
-            <div class="search-box">
-                <input type="text" class="search-input" placeholder="Search menu items..." id="searchInput">
-                <i class="fas fa-search"></i>
-            </div>
-            
-            <div class="cart-summary">
-                <button class="cart-btn" id="cartToggle">
+            <div class="controls-container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Items</button>
+                    <button class="filter-btn" data-filter="ravioli">Ravioli</button>
+                    <button class="filter-btn" data-filter="pasta">Fresh Pasta</button>
+                    <button class="filter-btn" data-filter="sauce">Sauces</button>
+                    <button class="filter-btn" data-filter="sausage">Sausage</button>
+                    <button class="filter-btn" data-filter="baked">Ready-to-Bake</button>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search menu items..." id="searchInput" aria-label="Search menu items">
+                    <i class="fas fa-search" style="color: #999;"></i>
+                </div>
+                
+                <button class="cart-toggle" id="cartToggle" aria-label="View shopping cart">
                     <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count" id="cartCount">0</span>
+                    <span class="cart-count" id="cartCount" style="display: none;">0</span>
                 </button>
             </div>
         </div>
@@ -538,126 +557,32 @@
     <section class="menu-section">
         <div class="container">
             <div class="menu-grid" id="menuGrid">
-                <!-- Product cards will be dynamically generated here -->
+                <!-- Products will be dynamically generated -->
             </div>
         </div>
     </section>
 
     <!-- Cart Modal -->
-    <div class="cart-modal" id="cartModal">
+    <div class="cart-modal" id="cartModal" role="dialog" aria-labelledby="cart-title" aria-modal="true">
         <div class="cart-content">
             <div class="cart-header">
-                <h2>Your Order</h2>
-                <button class="close-cart" id="closeCart">&times;</button>
+                <h2 id="cart-title">Your Order</h2>
+                <button class="close-cart" id="closeCart" aria-label="Close cart">&times;</button>
             </div>
-            <div class="cart-items" id="cartItems">
+            <div id="cartItems">
                 <!-- Cart items will be populated here -->
             </div>
-            <div class="cart-total">
+            <div class="cart-total" style="display: none;">
                 <h3>Total: <span class="total-price" id="totalPrice">$0.00</span></h3>
                 <button class="checkout-btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
             </div>
+            <div class="empty-cart" id="emptyCart">
+                <i class="fas fa-shopping-cart" style="font-size: 3rem; color: #ddd; margin-bottom: 1rem;"></i>
+                <h3>Your cart is empty</h3>
+                <p>Add some delicious Italian specialties to get started!</p>
+            </div>
         </div>
     </div>
-
-    <!-- Cross-sell Recommendations -->
-    <section class="recommendations">
-        <div class="container">
-            <div class="section-header">
-                <h2>You Might Also Like</h2>
-                <p>Popular combinations that go great together</p>
-            </div>
-            <div class="recommendation-grid">
-                <div class="recommendation-card">
-                    <h4>🍝 Perfect Pasta Night</h4>
-                    <p>Ravioli + Vodka Sauce + Gourmet Meatballs</p>
-                    <small>Most popular combo</small>
-                </div>
-                <div class="recommendation-card">
-                    <h4>🏠 Family Feast</h4>
-                    <p>Lasagna + Italian Sausage + Homemade Sauce</p>
-                    <small>Serves 6-8 people</small>
-                </div>
-                <div class="recommendation-card">
-                    <h4>🎉 Party Package</h4>
-                    <p>Multiple Ravioli + Bulk Sausage + Variety Sauces</p>
-                    <small>Perfect for gatherings</small>
-                </div>
-                <div class="recommendation-card">
-                    <h4>🌿 Vegetarian Delight</h4>
-                    <p>5 Cheese Ravioli + Rose Sauce + Fresh Pasta</p>
-                    <small>Meat-free option</small>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Ordering Process -->
-    <section class="ordering-process">
-        <div class="container">
-            <div class="section-header">
-                <h2>How It Works</h2>
-                <p>Simple steps to get authentic Italian food delivered to Myrtle Beach</p>
-            </div>
-            <div class="process-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h4>Browse & Select</h4>
-                    <p>Choose from 35+ authentic Italian specialties</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h4>Pick Your Date</h4>
-                    <p>Select your preferred pickup date & time</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h4>Pay Online</h4>
-                    <p>Secure checkout with instant confirmation</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h4>Pickup & Enjoy</h4>
-                    <p>Get reheating instructions & enjoy authentic Italian food</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq">
-        <div class="container">
-            <div class="section-header">
-                <h2>Frequently Asked Questions</h2>
-            </div>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h4>How far in advance should I order?</h4>
-                    <p>We recommend ordering 24-48 hours in advance to ensure availability, especially for specialty items and larger quantities.</p>
-                </div>
-                <div class="faq-item">
-                    <h4>Are the products frozen or fresh?</h4>
-                    <p>All items are flash-frozen to preserve freshness during transport from Northeast suppliers. They arrive frozen and ready to cook.</p>
-                </div>
-                <div class="faq-item">
-                    <h4>Do you have vegetarian options?</h4>
-                    <p>Absolutely! We offer many vegetarian options including our 5 Cheese Ravioli, Spinach & Cheese varieties, all fresh pasta, and our homemade sauces (except those with meat). Look for the green "vegetarian" badge on menu items.</p>
-                </div>
-                <div class="faq-item">
-                    <h4>What are your pickup locations?</h4>
-                    <p>We have a convenient pickup location in Myrtle Beach. Exact address and directions provided with your order confirmation.</p>
-                </div>
-                <div class="faq-item">
-                    <h4>Can I cancel or modify my order?</h4>
-                    <p>Orders can be modified or cancelled up to 12 hours before your scheduled pickup time. Contact us immediately for changes.</p>
-                </div>
-                <div class="faq-item">
-                    <h4>How do I reheat the products?</h4>
-                    <p>Each order comes with detailed reheating instructions. Most items can be prepared in 15-20 minutes from frozen.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -668,7 +593,7 @@
                         <img src="https://page.gensparksite.com/v1/base64_upload/24a0133849be5cd3312001c2bccfadbe" alt="Jersey Jems Logo" class="logo">
                         <h3>Jersey Jems</h3>
                     </div>
-                    <p>Authentic Northeast Italian specialties from family kitchens to your table. Bringing the taste of NY, NJ & Philly to Myrtle Beach.</p>
+                    <p>Authentic Northeast Italian specialties from family kitchens to your table.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
@@ -688,429 +613,389 @@
                 <div class="footer-section">
                     <h4>Follow Us</h4>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/share/14H35yfvq22/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/share/14H35yfvq22/?mibextid=wwXIfr" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Jersey Jems. All rights reserved. | <a href="../privacy-policy.html">Privacy Policy</a> | <a href="../terms-of-service.html">Terms</a> | <a href="../refund-policy.html">Refunds</a></p>
+                <p>&copy; 2024 Jersey Jems. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Menu Data - Each image carefully selected to match the exact product
+        // Menu Data with High-Quality, Accurate Images
         const menuItems = [
-            // FRESH RAVIOLI - Half Moon Shape
+            // FRESH RAVIOLI COLLECTION
             {
                 id: 1,
                 name: "Half Moon Ravioli",
-                description: "Fresh pasta filled with ricotta and herbs",
+                description: "Traditional crescent-shaped pasta filled with creamy ricotta and fresh herbs",
                 price: 7.85,
-                size: "13oz package",
+                size: "13oz package (approx. 12 pieces)",
                 category: "ravioli",
-                image: "https://images.unsplash.com/photo-1587740908075-9e245070dfaa?w=400&h=300&fit=crop&q=80",
+                image: "https://images.unsplash.com/photo-1587740908075-9e245070dfaa?w=600&h=400&fit=crop&auto=format&q=80",
                 badges: ["popular"],
-                tags: ["vegetarian"]
+                tags: ["vegetarian"],
+                alt: "Fresh half-moon shaped ravioli with ricotta filling"
             },
             {
                 id: 2,
-                name: "2 Dozen Half Moons",
-                description: "Family size portion",
-                price: 15.50,
-                size: "26oz package",
+                name: "Jumbo Ravioli",
+                description: "Large square ravioli with generous ricotta and herb filling",
+                price: 8.25,
+                size: "16oz package (8-10 pieces)",
                 category: "ravioli",
-                image: "https://images.unsplash.com/photo-1587740908075-9e245070dfaa?w=400&h=300&fit=crop&q=80",
+                image: "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=600&h=400&fit=crop&auto=format&q=80",
                 badges: [],
-                tags: ["vegetarian"]
+                tags: ["vegetarian"],
+                alt: "Large square ravioli pasta with cheese filling"
             },
             {
                 id: 3,
-                name: "Blanched Half Moons",
-                description: "Pre-cooked for quick preparation",
-                price: 18.75,
-                size: "36ea per bag",
+                name: "Spinach & Cheese Ravioli",
+                description: "Fresh spinach and three-cheese blend in tender pasta pockets",
+                price: 8.55,
+                size: "16oz package (8-10 pieces)",
                 category: "ravioli",
-                image: "https://images.unsplash.com/photo-1587740908075-9e245070dfaa?w=400&h=300&fit=crop&q=80",
-                badges: [],
-                tags: ["vegetarian"]
+                image: "https://images.unsplash.com/photo-1604909052743-94e838986d24?w=600&h=400&fit=crop&auto=format&q=80",
+                badges: ["vegetarian"],
+                tags: ["vegetarian"],
+                alt: "Green spinach and cheese filled ravioli"
             },
             {
                 id: 4,
-                name: "Sweet Ravioli Half Moon",
-                description: "Dessert ravioli with sweet filling",
-                price: 7.70,
-                size: "13oz package",
+                name: "Five Cheese Ravioli",
+                description: "Premium blend of ricotta, mozzarella, parmesan, romano, and asiago cheeses",
+                price: 9.25,
+                size: "18oz package (10-12 pieces)",
                 category: "ravioli",
-                image: "https://images.unsplash.com/photo-1555507036-ab794f77665a?w=400&h=300&fit=crop&q=80",
-                badges: ["vegetarian"],
-                tags: ["vegetarian", "dessert"]
+                image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&h=400&fit=crop&auto=format&q=80",
+                badges: ["popular", "vegetarian"],
+                tags: ["vegetarian"],
+                alt: "Five cheese ravioli with premium Italian cheeses"
             },
-            // JUMBO RAVIOLI - Larger Square/Round Shape
             {
                 id: 5,
-                name: "Jumbo Ravioli",
-                description: "Large size with generous filling",
-                price: 8.25,
-                size: "16oz package",
+                name: "Lobster Ravioli",
+                description: "Succulent Maine lobster with ricotta in delicate pasta shells",
+                price: 12.95,
+                size: "12oz package (6-8 pieces)",
                 category: "ravioli",
-                image: "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop&q=80",
-                badges: [],
-                tags: ["vegetarian"]
+                image: "https://images.unsplash.com/photo-1563379091339-03246963d7d3?w=600&h=400&fit=crop&auto=format&q=80",
+                badges: ["popular"],
+                tags: [],
+                alt: "Gourmet lobster ravioli with seafood filling"
             },
             {
                 id: 6,
-                name: "Blanched Jumbo (2lb Bags)",
-                description: "Bulk size, pre-cooked",
-                price: 17.65,
-                size: "24ea per bag",
+                name: "Broccoli Rabe Ravioli",
+                description: "Traditional Italian greens with ricotta in handmade pasta",
+                price: 8.95,
+                size: "16oz package (8-10 pieces)",
                 category: "ravioli",
-                image: "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop&q=80",
-                badges: [],
-                tags: ["vegetarian"]
+                image: "https://images.unsplash.com/photo-1604909052743-94e838986d24?w=600&h=400&fit=crop&auto=format&q=80",
+                badges: ["vegetarian"],
+                tags: ["vegetarian"],
+                alt: "Broccoli rabe and ricotta ravioli"
             },
-            // SPINACH RAVIOLI - Green filled ravioli
+
+            // FRESH PASTA COLLECTION
             {
                 id: 7,
-                name: "Spinach & Cheese Jumbo",
-                description: "Fresh spinach and three cheese blend",
-                price: 8.55,
+                name: "Fresh Spaghetti",
+                description: "Classic long pasta made with durum wheat and fresh eggs",
+                price: 4.30,
                 size: "16oz package",
-                category: "ravioli",
-                image: "https://images.unsplash.com/photo-1604909052743-94e838986d24?w=400&h=300&fit=crop&q=80",
+                category: "pasta",
+                image: "https://images.unsplash.com/photo-1621647832090-8d2d4a97e3b5?w=600&h=400&fit=crop&auto=format&q=80",
                 badges: ["vegetarian"],
-                tags: ["vegetarian"]
+                tags: ["vegetarian"],
+                alt: "Fresh homemade spaghetti pasta"
             },
             {
                 id: 8,
-                name: "Spinach Blanched Jumbos",
-                description: "Pre-cooked specialty ravioli",
-                price: 28.05,
-                size: "36ea per bag",
-                category: "ravioli",
-                image: "https://images.unsplash.com/photo-1604909052743-94e838986d24?w=400&h=300&fit=crop&q=80",
-                badges: [],
-                tags: ["vegetarian"]
+                name: "Angel Hair Pasta",
+                description: "Delicate, thin strands perfect for light sauces",
+                price: 4.30,
+                size: "16oz package",
+                category: "pasta",
+                image: "https://images.unsplash.com/photo-1551462147-37abc2011f97?w=600&h=400&fit=crop&auto=format&q=80",
+                badges: ["vegetarian"],
+                tags: ["vegetarian"],
+                alt: "Thin angel hair pasta strands"
             },
-            // CHEESE RAVIOLI - Classic white/cheese filled
             {
                 id: 9,
-                name: "5 Cheese Ravioli",
-                description: "Premium blend of five Italian cheeses",
-                price: 7.25,
-                size: "18ct package",
-                category: "ravioli",
-                image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&h=300&fit=crop&q=80",
-                badges: ["popular", "vegetarian"],
-                tags: ["vegetarian"]
+                name: "Fresh Linguine",
+                description: "Flat, narrow pasta ideal for seafood and cream sauces",
+                price: 4.30,
+                size: "16oz package",
+                category: "pasta",
+                image: "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600&h=400&fit=crop&auto=format&q=80",
+                badges: ["vegetarian"],
+                tags: ["vegetarian"],
+                alt: "Fresh linguine pasta noodles"
             },
             {
                 id: 10,
-                name: "5 Cheese Ravioli (Large)",
-                description: "Jumbo size with five cheese filling",
-                price: 14.75,
-                size: "6ct package",
-                category: "ravioli",
-                image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&h=300&fit=crop&q=80",
+                name: "Fresh Fettuccine",
+                description: "Wide, flat ribbon pasta perfect for rich, creamy sauces",
+                price: 4.30,
+                size: "16oz package",
+                category: "pasta",
+                image: "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=600&h=400&fit=crop&auto=format&q=80",
                 badges: ["vegetarian"],
-                tags: ["vegetarian"]
+                tags: ["vegetarian"],
+                alt: "Wide ribbon fettuccine pasta"
             },
-            // LOBSTER RAVIOLI - Seafood ravioli
             {
                 id: 11,
-                name: "Lobster Ravioli",
-                description: "Premium lobster filling in fresh pasta",
-                price: 11.15,
-                size: "16oz package",
-                category: "ravioli",
-                image: "https://images.unsplash.com/photo-1563379091339-03246963d7d3?w=400&h=300&fit=crop&q=80",
-                badges: ["popular"],
-                tags: []
-            },
-            // BROCCOLI RABE RAVIOLI - Green vegetable ravioli
-            {
-                id: 12,
-                name: "Ricotta & Broccoli Rabe Ravioli",
-                description: "Ricotta cheese with traditional broccoli rabe",
-                price: 12.95,
-                size: "12oz package",
-                category: "ravioli",
-                image: "https://images.unsplash.com/photo-1604909052743-94e838986d24?w=400&h=300&fit=crop&q=80",
-                badges: ["vegetarian"],
-                tags: ["vegetarian"]
-            },
-            // SPAGHETTI - Long thin pasta strands
-            {
-                id: 13,
-                name: "Spaghetti",
-                description: "Classic long pasta, perfect texture",
-                price: 4.30,
-                size: "16oz package",
-                category: "pasta",
-                image: "https://images.unsplash.com/photo-1621647832090-8d2d4a97e3b5?w=400&h=300&fit=crop&q=80",
-                badges: ["vegetarian"],
-                tags: ["vegetarian"]
-            },
-            // ANGEL HAIR - Very thin pasta strands
-            {
-                id: 14,
-                name: "Angel Hair Spaghetti",
-                description: "Delicate, thin pasta",
-                price: 4.30,
-                size: "16oz package",
-                category: "pasta",
-                image: "https://images.unsplash.com/photo-1551462147-37abc2011f97?w=400&h=300&fit=crop&q=80",
-                badges: ["vegetarian"],
-                tags: ["vegetarian"]
-            },
-            // LINGUINE - Flat thin pasta
-            {
-                id: 15,
-                name: "Linguine",
-                description: "Flat, narrow pasta ideal for seafood",
-                price: 4.30,
-                size: "16oz package",
-                category: "pasta",
-                image: "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=400&h=300&fit=crop&q=80",
-                badges: ["vegetarian"],
-                tags: ["vegetarian"]
-            },
-            // FETTUCCINE - Wide flat ribbon pasta
-            {
-                id: 16,
-                name: "Fettuccini",
-                description: "Wide, flat ribbon pasta",
-                price: 4.30,
-                size: "16oz package",
-                category: "pasta",
-                image: "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400&h=300&fit=crop&q=80",
-                badges: ["vegetarian"],
-                tags: ["vegetarian"]
-            },
-            // GNOCCHI - Small potato dumplings
-            {
-                id: 17,
                 name: "Potato Gnocchi",
-                description: "Traditional potato dumplings",
+                description: "Pillowy soft potato dumplings made from scratch",
                 price: 5.40,
                 size: "16oz package",
                 category: "pasta",
-                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&q=80",
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop&auto=format&q=80",
                 badges: ["vegetarian"],
-                tags: ["vegetarian"]
+                tags: ["vegetarian"],
+                alt: "Homemade potato gnocchi dumplings"
             },
             {
-                id: 18,
+                id: 12,
                 name: "Cheese Gnocchi",
-                description: "Enriched with premium cheese",
+                description: "Traditional gnocchi enriched with premium Italian cheeses",
                 price: 5.90,
                 size: "16oz package",
                 category: "pasta",
-                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&q=80",
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop&auto=format&q=80",
                 badges: ["vegetarian"],
-                tags: ["vegetarian"]
+                tags: ["vegetarian"],
+                alt: "Cheese-enriched gnocchi pasta"
             },
-            // MANICOTTI - Large pasta tubes
             {
-                id: 19,
-                name: "Manicotti",
-                description: "Large pasta tubes for stuffing",
-                price: 9.90,
-                size: "16oz package",
-                category: "pasta",
-                image: "https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?w=400&h=300&fit=crop&q=80",
-                badges: ["vegetarian"],
-                tags: ["vegetarian"]
-            },
-            // TORTELLINI - Ring shaped pasta
-            {
-                id: 20,
+                id: 13,
                 name: "Cheese Tortellini",
-                description: "Ring-shaped pasta with cheese filling",
+                description: "Ring-shaped pasta filled with three-cheese blend",
                 price: 7.20,
                 size: "16oz package",
                 category: "pasta",
-                image: "https://images.unsplash.com/photo-1555507036-ab794f77665a?w=400&h=300&fit=crop&q=80",
+                image: "https://images.unsplash.com/photo-1555507036-ab794f77665a?w=600&h=400&fit=crop&auto=format&q=80",
                 badges: ["vegetarian"],
-                tags: ["vegetarian"]
+                tags: ["vegetarian"],
+                alt: "Ring-shaped cheese tortellini pasta"
+            },
+            {
+                id: 14,
+                name: "Fresh Lasagna Sheets",
+                description: "Wide pasta sheets perfect for homemade lasagna",
+                price: 5.50,
+                size: "16oz package",
+                category: "pasta",
+                image: "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=600&h=400&fit=crop&auto=format&q=80",
+                badges: ["vegetarian"],
+                tags: ["vegetarian"],
+                alt: "Fresh lasagna pasta sheets"
+            },
+            {
+                id: 15,
+                name: "Manicotti Shells",
+                description: "Large pasta tubes ready for your favorite filling",
+                price: 6.90,
+                size: "16oz package",
+                category: "pasta",
+                image: "https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?w=600&h=400&fit=crop&auto=format&q=80",
+                badges: ["vegetarian"],
+                tags: ["vegetarian"],
+                alt: "Large manicotti pasta shells for stuffing"
+            },
+
+            // READY-TO-BAKE COLLECTION
+            {
+                id: 16,
+                name: "Family Lasagna",
+                description: "Layers of pasta, meat sauce, and three cheeses - ready to bake",
+                price: 16.90,
+                size: "3lb tray (serves 6-8)",
+                category: "baked",
+                image: "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=600&h=400&fit=crop&auto=format&q=80",
+                badges: ["popular"],
+                tags: [],
+                alt: "Family-size lasagna ready to bake"
+            },
+            {
+                id: 17,
+                name: "Party Lasagna",
+                description: "Extra-large lasagna perfect for gatherings",
+                price: 28.90,
+                size: "5lb tray (serves 12-15)",
+                category: "baked",
+                image: "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=600&h=400&fit=crop&auto=format&q=80",
+                badges: [],
+                tags: [],
+                alt: "Large party-size lasagna tray"
+            },
+            {
+                id: 18,
+                name: "Stuffed Shells",
+                description: "Jumbo shells filled with ricotta, herbs, and parmesan",
+                price: 12.10,
+                size: "24oz tray (12 shells)",
+                category: "baked",
+                image: "https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?w=600&h=400&fit=crop&auto=format&q=80",
+                badges: ["vegetarian"],
+                tags: ["vegetarian"],
+                alt: "Cheese-stuffed pasta shells ready to bake"
+            },
+            {
+                id: 19,
+                name: "Baked Ziti Tray",
+                description: "Ziti pasta with meat sauce and melted mozzarella",
+                price: 14.50,
+                size: "2lb tray (serves 4-6)",
+                category: "baked",
+                image: "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=600&h=400&fit=crop&auto=format&q=80",
+                badges: [],
+                tags: [],
+                alt: "Baked ziti with meat sauce and cheese"
+            },
+
+            // ITALIAN SAUSAGE COLLECTION
+            {
+                id: 20,
+                name: "Sweet Italian Sausage",
+                description: "Traditional recipe with fennel and herbs",
+                price: 8.70,
+                size: "2lb package",
+                category: "sausage",
+                image: "https://images.unsplash.com/photo-1606728035253-49e8a23146de?w=600&h=400&fit=crop&auto=format&q=80",
+                badges: ["popular"],
+                tags: [],
+                alt: "Sweet Italian sausage links"
             },
             {
                 id: 21,
-                name: "Cheese Tortellini (Family Size)",
-                description: "Large format for big appetites",
-                price: 16.00,
-                size: "6ct bulk package",
-                category: "pasta",
-                image: "https://images.unsplash.com/photo-1555507036-ab794f77665a?w=400&h=300&fit=crop&q=80",
+                name: "Hot Italian Sausage",
+                description: "Spicy version with red pepper flakes and paprika",
+                price: 8.70,
+                size: "2lb package",
+                category: "sausage",
+                image: "https://images.unsplash.com/photo-1606728035253-49e8a23146de?w=600&h=400&fit=crop&auto=format&q=80",
                 badges: [],
-                tags: ["vegetarian"]
+                tags: [],
+                alt: "Spicy hot Italian sausage links"
             },
-            // STUFFED SHELLS - Large shell pasta stuffed with cheese
             {
                 id: 22,
-                name: "Stuffed Shells",
-                description: "Large shells filled with cheese blend",
-                price: 6.10,
-                size: "18oz package",
-                category: "baked",
-                image: "https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?w=400&h=300&fit=crop&q=80",
-                badges: ["vegetarian"],
-                tags: ["vegetarian"]
+                name: "Bulk Italian Sausage",
+                description: "Perfect for sauce, meatballs, or pizza toppings",
+                price: 15.75,
+                size: "5lb package",
+                category: "sausage",
+                image: "https://images.unsplash.com/photo-1559557831-1a41a2b64901?w=600&h=400&fit=crop&auto=format&q=80",
+                badges: [],
+                tags: [],
+                alt: "Bulk Italian sausage meat for cooking"
             },
-            // LASAGNA - Layered pasta dish
+
+            // GOURMET SAUCES COLLECTION
             {
                 id: 23,
-                name: "2lb Lasagna",
-                description: "Family size, ready to bake",
-                price: 13.90,
-                size: "32oz family size",
-                category: "baked",
-                image: "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400&h=300&fit=crop&q=80",
-                badges: ["popular"],
-                tags: []
+                name: "Homemade Marinara",
+                description: "Classic tomato sauce with basil, garlic, and oregano",
+                price: 6.80,
+                size: "32oz jar",
+                category: "sauce",
+                image: "https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?w=600&h=400&fit=crop&auto=format&q=80",
+                badges: ["popular", "vegetarian"],
+                tags: ["vegetarian"],
+                alt: "Homemade marinara sauce in jar"
             },
             {
                 id: 24,
-                name: "4lb Lasagna",
-                description: "Party size for large gatherings",
-                price: 25.60,
-                size: "64oz party size",
-                category: "baked",
-                image: "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400&h=300&fit=crop&q=80",
-                badges: [],
-                tags: []
+                name: "Vodka Sauce",
+                description: "Rich cream and tomato sauce with a hint of vodka",
+                price: 8.95,
+                size: "32oz jar",
+                category: "sauce",
+                image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=600&h=400&fit=crop&auto=format&q=80",
+                badges: ["popular", "vegetarian"],
+                tags: ["vegetarian"],
+                alt: "Creamy vodka sauce for pasta"
             },
-            // LASAGNA SHEETS - Flat pasta for making lasagna
             {
                 id: 25,
-                name: "Fresh Lasagna Skins",
-                description: "Make your own lasagna",
-                price: 9.50,
-                size: "16oz package",
-                category: "pasta",
-                image: "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400&h=300&fit=crop&q=80",
+                name: "Rose Sauce",
+                description: "Delicate blend of tomato and cream with fresh herbs",
+                price: 7.95,
+                size: "32oz jar",
+                category: "sauce",
+                image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=600&h=400&fit=crop&auto=format&q=80",
                 badges: ["vegetarian"],
-                tags: ["vegetarian"]
+                tags: ["vegetarian"],
+                alt: "Pink rose sauce for pasta"
             },
-            // ITALIAN SAUSAGE - Raw sausage products
             {
                 id: 26,
-                name: "Italian Sausage (Small)",
-                description: "Traditional Italian seasoning",
-                price: 7.70,
-                size: "2lb package",
-                category: "sausage",
-                image: "https://images.unsplash.com/photo-1559557831-1a41a2b64901?w=400&h=300&fit=crop&q=80",
-                badges: [],
-                tags: []
+                name: "Roasted Red Pepper Sauce",
+                description: "Sweet roasted peppers blended with garlic and herbs",
+                price: 8.05,
+                size: "32oz jar",
+                category: "sauce",
+                image: "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=600&h=400&fit=crop&auto=format&q=80",
+                badges: ["vegetarian"],
+                tags: ["vegetarian"],
+                alt: "Roasted red pepper pasta sauce"
             },
             {
                 id: 27,
-                name: "Italian Sausage Links",
-                description: "Pre-formed links, ready to cook",
-                price: 8.80,
-                size: "2lb package",
-                category: "sausage",
-                image: "https://images.unsplash.com/photo-1606728035253-49e8a23146de?w=400&h=300&fit=crop&q=80",
-                badges: ["popular"],
-                tags: []
+                name: "Meat Sauce",
+                description: "Hearty sauce with ground beef, Italian sausage, and herbs",
+                price: 9.50,
+                size: "32oz jar",
+                category: "sauce",
+                image: "https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?w=600&h=400&fit=crop&auto=format&q=80",
+                badges: [],
+                tags: [],
+                alt: "Rich meat sauce with beef and sausage"
             },
             {
                 id: 28,
-                name: "Italian Sausage (Bulk)",
-                description: "Perfect for large gatherings",
-                price: 14.75,
-                size: "5lb package",
-                category: "sausage",
-                image: "https://images.unsplash.com/photo-1559557831-1a41a2b64901?w=400&h=300&fit=crop&q=80",
-                badges: [],
-                tags: []
+                name: "Pesto Sauce",
+                description: "Fresh basil, pine nuts, garlic, and parmesan cheese",
+                price: 9.95,
+                size: "16oz jar",
+                category: "sauce",
+                image: "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=600&h=400&fit=crop&auto=format&q=80",
+                badges: ["vegetarian"],
+                tags: ["vegetarian"],
+                alt: "Fresh basil pesto sauce"
             },
-            // MARINARA SAUCE - Red tomato sauce
             {
                 id: 29,
-                name: "Homemade Sauce (Pints)",
-                description: "Traditional marinara sauce",
-                price: 4.80,
-                size: "16oz container",
+                name: "Alfredo Sauce",
+                description: "Rich and creamy parmesan cheese sauce",
+                price: 8.50,
+                size: "32oz jar",
                 category: "sauce",
-                image: "https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?w=400&h=300&fit=crop&q=80",
+                image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=600&h=400&fit=crop&auto=format&q=80",
                 badges: ["vegetarian"],
-                tags: ["vegetarian"]
+                tags: ["vegetarian"],
+                alt: "Creamy alfredo cheese sauce"
             },
             {
                 id: 30,
-                name: "Homemade Sauce (Quarts)",
-                description: "Family size portion",
-                price: 8.35,
-                size: "32oz container",
-                category: "sauce",
-                image: "https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?w=400&h=300&fit=crop&q=80",
-                badges: ["vegetarian"],
-                tags: ["vegetarian"]
-            },
-            // MEATBALLS - Cooked meatballs in sauce
-            {
-                id: 31,
                 name: "Gourmet Meatballs",
-                description: "Hand-rolled, seasoned perfectly",
+                description: "Hand-rolled meatballs in homemade marinara sauce",
                 price: 16.10,
-                size: "24oz package",
+                size: "2lb container (24 meatballs)",
                 category: "sauce",
-                image: "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop&q=80",
+                image: "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&h=400&fit=crop&auto=format&q=80",
                 badges: ["popular"],
-                tags: []
-            },
-            // ROASTED PEPPER SAUCE - Red pepper based sauce  
-            {
-                id: 32,
-                name: "Roasted Pepper Sauce",
-                description: "Rich roasted red pepper sauce",
-                price: 7.05,
-                size: "32oz container",
-                category: "sauce",
-                image: "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=400&h=300&fit=crop&q=80",
-                badges: ["vegetarian"],
-                tags: ["vegetarian"]
-            },
-            // ROSE SAUCE - Pink creamy sauce
-            {
-                id: 33,
-                name: "Rose Sauce",
-                description: "Creamy tomato and cream sauce blend",
-                price: 6.95,
-                size: "32oz container",
-                category: "sauce",
-                image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop&q=80",
-                badges: ["vegetarian"],
-                tags: ["vegetarian"]
-            },
-            // VODKA SAUCE - Pink/orange creamy sauce
-            {
-                id: 34,
-                name: "Vodka Sauce",
-                description: "Traditional vodka cream sauce",
-                price: 6.95,
-                size: "32oz container",
-                category: "sauce",
-                image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop&q=80",
-                badges: ["popular", "vegetarian"],
-                tags: ["vegetarian"]
-            },
-            // CUSTOM ORDERS - General Italian food image
-            {
-                id: 35,
-                name: "Custom Orders",
-                description: "Special requests welcome",
-                price: 0,
-                size: "Call for pricing",
-                category: "sauce",
-                image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop&q=80",
-                badges: [],
-                tags: []
+                tags: [],
+                alt: "Homemade meatballs in marinara sauce"
             }
         ];
 
@@ -1128,7 +1013,7 @@
         const searchInput = document.getElementById('searchInput');
         const filterBtns = document.querySelectorAll('.filter-btn');
 
-        // Initialize
+        // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
             renderMenuItems(menuItems);
             setupEventListeners();
@@ -1151,18 +1036,13 @@
             card.dataset.category = item.category;
             card.dataset.tags = item.tags.join(',');
             
-            const badges = item.badges.map(badge => {
-                let badgeClass = badge;
-                if (badge === 'popular') badgeClass = 'popular';
-                return `<span class="badge ${badgeClass}">${badge}</span>`;
-            }).join('');
-
-            // Handle pricing display
-            const priceDisplay = item.price === 0 ? 'Call' : `$${item.price.toFixed(2)}`;
+            const badges = item.badges.map(badge => 
+                `<span class="badge ${badge}">${badge}</span>`
+            ).join('');
 
             card.innerHTML = `
                 <div class="product-image">
-                    <img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.style.display='none'; this.parentNode.style.justifyContent='center'; this.parentNode.innerHTML='<div style=\"font-size: 4rem;\">🍝</div>';">
+                    <img src="${item.image}" alt="${item.alt}" loading="lazy">
                     <div class="product-badges">${badges}</div>
                 </div>
                 <div class="product-info">
@@ -1170,19 +1050,15 @@
                     <p class="product-description">${item.description}</p>
                     <div class="product-details">
                         <span class="product-size">${item.size}</span>
-                        <span class="product-price">${priceDisplay}</span>
+                        <span class="product-price">$${item.price.toFixed(2)}</span>
                     </div>
                     <div class="product-actions">
-                        ${item.price > 0 ? `
                         <div class="quantity-selector">
-                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
-                            <input type="number" class="quantity-input" id="qty-${item.id}" value="1" min="1" max="20">
-                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+                            <button class="quantity-btn" type="button" onclick="updateQuantity(${item.id}, -1)" aria-label="Decrease quantity">-</button>
+                            <input type="number" class="quantity-input" id="qty-${item.id}" value="1" min="1" max="10" aria-label="Quantity">
+                            <button class="quantity-btn" type="button" onclick="updateQuantity(${item.id}, 1)" aria-label="Increase quantity">+</button>
                         </div>
-                        <button class="add-to-cart" onclick="addToCart(${item.id})">Add to Cart</button>
-                        ` : `
-                        <button class="add-to-cart" onclick="contactForCustomOrder()" style="width: 100%;">Contact for Quote</button>
-                        `}
+                        <button class="add-to-cart" onclick="addToCart(${item.id})" aria-label="Add ${item.name} to cart">Add to Cart</button>
                     </div>
                 </div>
             `;
@@ -1194,16 +1070,27 @@
             // Cart toggle
             cartToggle.addEventListener('click', () => {
                 cartModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
             });
 
             closeCart.addEventListener('click', () => {
                 cartModal.classList.remove('active');
+                document.body.style.overflow = '';
             });
 
             // Close cart when clicking outside
             cartModal.addEventListener('click', (e) => {
                 if (e.target === cartModal) {
                     cartModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // Keyboard navigation for cart modal
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && cartModal.classList.contains('active')) {
+                    cartModal.classList.remove('active');
+                    document.body.style.overflow = '';
                 }
             });
 
@@ -1224,14 +1111,6 @@
                     hamburger.classList.toggle('active');
                     navMenu.classList.toggle('active');
                 });
-
-                const navLinks = document.querySelectorAll('.nav-link');
-                navLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        hamburger.classList.remove('active');
-                        navMenu.classList.remove('active');
-                    });
-                });
             }
         }
 
@@ -1240,7 +1119,7 @@
             const qtyInput = document.getElementById(`qty-${itemId}`);
             let newValue = parseInt(qtyInput.value) + change;
             if (newValue < 1) newValue = 1;
-            if (newValue > 20) newValue = 20;
+            if (newValue > 10) newValue = 10;
             qtyInput.value = newValue;
         }
 
@@ -1253,10 +1132,7 @@
             if (existingItem) {
                 existingItem.quantity += quantity;
             } else {
-                cart.push({
-                    ...item,
-                    quantity: quantity
-                });
+                cart.push({ ...item, quantity: quantity });
             }
             
             updateCartUI();
@@ -1265,24 +1141,36 @@
             const button = event.target;
             const originalText = button.textContent;
             button.textContent = 'Added!';
-            button.style.background = '#4CAF50';
+            button.classList.add('added');
             setTimeout(() => {
                 button.textContent = originalText;
-                button.style.background = '';
-            }, 1000);
+                button.classList.remove('added');
+            }, 1500);
         }
 
         // Update cart UI
         function updateCartUI() {
-            // Update cart count
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const emptyCart = document.getElementById('emptyCart');
+            const cartTotal = document.querySelector('.cart-total');
+            
+            // Update cart count
             cartCount.textContent = totalItems;
             cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
 
-            // Update cart items
+            // Clear cart items
             cartItems.innerHTML = '';
-            let total = 0;
+            
+            if (cart.length === 0) {
+                emptyCart.style.display = 'block';
+                cartTotal.style.display = 'none';
+                return;
+            }
 
+            emptyCart.style.display = 'none';
+            cartTotal.style.display = 'block';
+
+            let total = 0;
             cart.forEach(item => {
                 total += item.price * item.quantity;
                 const cartItem = document.createElement('div');
@@ -1290,12 +1178,10 @@
                 cartItem.innerHTML = `
                     <div class="cart-item-info">
                         <h4>${item.name}</h4>
-                        <p>${item.size} - $${item.price.toFixed(2)} each</p>
-                        <p>Quantity: ${item.quantity}</p>
+                        <p>${item.size}</p>
+                        <p>$${item.price.toFixed(2)} × ${item.quantity} = $${(item.price * item.quantity).toFixed(2)}</p>
                     </div>
-                    <div class="cart-item-actions">
-                        <button onclick="removeFromCart(${item.id})">Remove</button>
-                    </div>
+                    <button class="remove-item" onclick="removeFromCart(${item.id})" aria-label="Remove ${item.name}">Remove</button>
                 `;
                 cartItems.appendChild(cartItem);
             });
@@ -1315,14 +1201,14 @@
             const filteredItems = menuItems.filter(item => 
                 item.name.toLowerCase().includes(searchTerm) ||
                 item.description.toLowerCase().includes(searchTerm) ||
-                item.category.toLowerCase().includes(searchTerm)
+                item.category.toLowerCase().includes(searchTerm) ||
+                item.tags.some(tag => tag.toLowerCase().includes(searchTerm))
             );
             renderMenuItems(filteredItems);
         }
 
         // Filter functionality
         function handleFilter(e) {
-            // Update active button
             filterBtns.forEach(btn => btn.classList.remove('active'));
             e.target.classList.add('active');
 
@@ -1330,20 +1216,10 @@
             let filteredItems = menuItems;
 
             if (filterValue !== 'all') {
-                filteredItems = menuItems.filter(item => {
-                    if (filterValue === 'vegetarian') {
-                        return item.tags.includes(filterValue);
-                    }
-                    return item.category === filterValue;
-                });
+                filteredItems = menuItems.filter(item => item.category === filterValue);
             }
 
             renderMenuItems(filteredItems);
-        }
-
-        // Contact for custom order
-        function contactForCustomOrder() {
-            alert('Please contact us at info@jerseyjems.com or (843) 555-JEMS for custom order pricing and availability.');
         }
 
         // Proceed to checkout
@@ -1353,91 +1229,17 @@
                 return;
             }
 
-            // For now, redirect to contact form
+            const orderSummary = cart.map(item => 
+                `${item.name} (${item.quantity}x) - $${(item.price * item.quantity).toFixed(2)}`
+            ).join('\n');
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            alert(`Order Summary:\n\n${orderSummary}\n\nTotal: $${total.toFixed(2)}\n\nRedirecting to contact form to complete your order...`);
+            
+            // Redirect to contact form
             window.location.href = '../index.html#contact';
         }
     </script>
-
-    <!-- Additional CSS for the new sections -->
-    <style>
-        .ordering-process {
-            padding: var(--section-padding);
-            background: var(--white);
-        }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .step {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 15px;
-            background: var(--light-bg);
-            transition: var(--transition);
-        }
-
-        .step:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-light);
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin: 0 auto 1.5rem;
-        }
-
-        .step h4 {
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-        }
-
-        .faq {
-            padding: var(--section-padding);
-            background: var(--light-bg);
-        }
-
-        .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .faq-item {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow-light);
-        }
-
-        .faq-item h4 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        @media (max-width: 768px) {
-            .faq-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .process-steps {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-        }
-    </style>
 </body>
 </html>
