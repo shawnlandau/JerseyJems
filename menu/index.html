@@ -218,11 +218,6 @@
             color: white;
         }
         
-        .badge.gluten-free {
-            background: #FF9800;
-            color: white;
-        }
-        
         .badge.popular {
             background: var(--accent-color);
             color: white;
@@ -519,11 +514,10 @@
                 <button class="filter-btn active" data-filter="all">All Items</button>
                 <button class="filter-btn" data-filter="ravioli">Ravioli</button>
                 <button class="filter-btn" data-filter="pasta">Fresh Pasta</button>
-                <button class="filter-btn" data-filter="sauce">Sauces</button>
+                <button class="filter-btn" data-filter="sauce">Sauces & Meatballs</button>
                 <button class="filter-btn" data-filter="sausage">Italian Sausage</button>
                 <button class="filter-btn" data-filter="baked">Ready-to-Bake</button>
                 <button class="filter-btn" data-filter="vegetarian">Vegetarian</button>
-                <button class="filter-btn" data-filter="gluten-free">Gluten-Free</button>
             </div>
             
             <div class="search-box">
@@ -646,8 +640,8 @@
                     <p>All items are flash-frozen to preserve freshness during transport from Northeast suppliers. They arrive frozen and ready to cook.</p>
                 </div>
                 <div class="faq-item">
-                    <h4>Do you have vegetarian/gluten-free options?</h4>
-                    <p>Yes! We offer several vegetarian options (like our 5 Cheese Ravioli) and can accommodate special dietary needs with advance notice.</p>
+                    <h4>Do you have vegetarian options?</h4>
+                    <p>Absolutely! We offer many vegetarian options including our 5 Cheese Ravioli, Spinach & Cheese varieties, all fresh pasta, and our homemade sauces (except those with meat). Look for the green "vegetarian" badge on menu items.</p>
                 </div>
                 <div class="faq-item">
                     <h4>What are your pickup locations?</h4>
@@ -710,6 +704,7 @@
     <script>
         // Menu Data
         const menuItems = [
+            // FRESH RAVIOLI
             {
                 id: 1,
                 name: "Half Moon Ravioli",
@@ -717,283 +712,388 @@
                 price: 7.85,
                 size: "13oz package",
                 category: "ravioli",
-                image: "🥟",
+                image: "https://images.unsplash.com/photo-1587740908075-9e245070dfaa?w=300&h=200&fit=crop&crop=center&q=80",
                 badges: ["popular"],
                 tags: ["vegetarian"]
             },
             {
                 id: 2,
-                name: "Lobster Ravioli",
-                description: "Premium lobster filling in fresh pasta",
-                price: 11.15,
-                size: "16oz package",
+                name: "2 Dozen Half Moons",
+                description: "Family size portion",
+                price: 15.50,
+                size: "26oz package",
                 category: "ravioli",
-                image: "🦞",
-                badges: ["popular"],
-                tags: []
+                image: "https://images.unsplash.com/photo-1587740908075-9e245070dfaa?w=300&h=200&fit=crop&crop=center&q=80",
+                badges: [],
+                tags: ["vegetarian"]
             },
             {
                 id: 3,
-                name: "5 Cheese Ravioli",
-                description: "Premium blend of five Italian cheeses",
-                price: 7.25,
-                size: "18ct package",
+                name: "Blanched Half Moons",
+                description: "Pre-cooked for quick preparation",
+                price: 18.75,
+                size: "36ea per bag",
                 category: "ravioli",
-                image: "🧀",
-                badges: ["vegetarian"],
+                image: "https://images.unsplash.com/photo-1587740908075-9e245070dfaa?w=300&h=200&fit=crop&crop=center&q=80",
+                badges: [],
                 tags: ["vegetarian"]
             },
             {
                 id: 4,
-                name: "Spinach & Cheese Jumbo",
-                description: "Fresh spinach and three cheese blend",
-                price: 8.55,
-                size: "16oz package",
-                category: "ravioli",
-                image: "🌿",
-                badges: ["vegetarian"],
-                tags: ["vegetarian"]
-            },
-            {
-                id: 5,
-                name: "Ricotta & Broccoli Rabe Ravioli",
-                description: "Ricotta cheese with traditional broccoli rabe",
-                price: 12.95,
-                size: "12oz package",
-                category: "ravioli",
-                image: "🥬",
-                badges: ["vegetarian"],
-                tags: ["vegetarian"]
-            },
-            {
-                id: 6,
                 name: "Sweet Ravioli Half Moon",
                 description: "Dessert ravioli with sweet filling",
                 price: 7.70,
                 size: "13oz package",
                 category: "ravioli",
-                image: "🍮",
+                image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=300&h=200&fit=crop&crop=center&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian", "dessert"]
             },
             {
-                id: 7,
-                name: "Spaghetti",
-                description: "Classic long pasta, perfect texture",
-                price: 4.30,
+                id: 5,
+                name: "Jumbo Ravioli",
+                description: "Large size with generous filling",
+                price: 8.25,
                 size: "16oz package",
-                category: "pasta",
-                image: "🍝",
+                category: "ravioli",
+                image: "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=300&h=200&fit=crop&crop=center&q=80",
+                badges: [],
+                tags: ["vegetarian"]
+            },
+            {
+                id: 6,
+                name: "Blanched Jumbo (2lb Bags)",
+                description: "Bulk size, pre-cooked",
+                price: 17.65,
+                size: "24ea per bag",
+                category: "ravioli",
+                image: "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=300&h=200&fit=crop&crop=center&q=80",
+                badges: [],
+                tags: ["vegetarian"]
+            },
+            // SPECIALTY RAVIOLI
+            {
+                id: 7,
+                name: "Spinach & Cheese Jumbo",
+                description: "Fresh spinach and three cheese blend",
+                price: 8.55,
+                size: "16oz package",
+                category: "ravioli",
+                image: "https://images.unsplash.com/photo-1604909052743-94e838986d24?w=300&h=200&fit=crop&crop=center&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"]
             },
             {
                 id: 8,
-                name: "Angel Hair Spaghetti",
-                description: "Delicate, thin pasta",
-                price: 4.30,
-                size: "16oz package",
-                category: "pasta",
-                image: "🍜",
-                badges: ["vegetarian"],
+                name: "Spinach Blanched Jumbos",
+                description: "Pre-cooked specialty ravioli",
+                price: 28.05,
+                size: "36ea per bag",
+                category: "ravioli",
+                image: "https://images.unsplash.com/photo-1604909052743-94e838986d24?w=300&h=200&fit=crop&crop=center&q=80",
+                badges: [],
                 tags: ["vegetarian"]
             },
             {
                 id: 9,
-                name: "Linguine",
-                description: "Flat, narrow pasta ideal for seafood",
-                price: 4.30,
-                size: "16oz package",
-                category: "pasta",
-                image: "🍝",
-                badges: ["vegetarian"],
+                name: "5 Cheese Ravioli",
+                description: "Premium blend of five Italian cheeses",
+                price: 7.25,
+                size: "18ct package",
+                category: "ravioli",
+                image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=300&h=200&fit=crop&crop=center&q=80",
+                badges: ["popular", "vegetarian"],
                 tags: ["vegetarian"]
             },
             {
                 id: 10,
-                name: "Fettuccini",
-                description: "Wide, flat ribbon pasta",
-                price: 4.30,
-                size: "16oz package",
-                category: "pasta",
-                image: "🍝",
+                name: "5 Cheese Ravioli (Large)",
+                description: "Jumbo size with five cheese filling",
+                price: 14.75,
+                size: "6ct package",
+                category: "ravioli",
+                image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=300&h=200&fit=crop&crop=center&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"]
             },
             {
                 id: 11,
-                name: "Potato Gnocchi",
-                description: "Traditional potato dumplings",
-                price: 5.40,
+                name: "Lobster Ravioli",
+                description: "Premium lobster filling in fresh pasta",
+                price: 11.15,
                 size: "16oz package",
-                category: "pasta",
-                image: "🥔",
-                badges: ["vegetarian"],
-                tags: ["vegetarian"]
+                category: "ravioli",
+                image: "https://images.unsplash.com/photo-1563379091339-03246963d7d3?w=300&h=200&fit=crop&crop=center&q=80",
+                badges: ["popular"],
+                tags: []
             },
             {
                 id: 12,
-                name: "Cheese Gnocchi",
-                description: "Enriched with premium cheese",
-                price: 5.90,
-                size: "16oz package",
-                category: "pasta",
-                image: "🧀",
+                name: "Ricotta & Broccoli Rabe Ravioli",
+                description: "Ricotta cheese with traditional broccoli rabe",
+                price: 12.95,
+                size: "12oz package",
+                category: "ravioli",
+                image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300&h=200&fit=crop&crop=center&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"]
             },
+            // FRESH PASTA
             {
                 id: 13,
-                name: "Cheese Tortellini",
-                description: "Ring-shaped pasta with cheese filling",
-                price: 7.20,
+                name: "Spaghetti",
+                description: "Classic long pasta, perfect texture",
+                price: 4.30,
                 size: "16oz package",
                 category: "pasta",
-                image: "🥟",
+                image: "https://images.unsplash.com/photo-1621647832090-8d2d4a97e3b5?w=300&h=200&fit=crop&crop=center&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"]
             },
             {
                 id: 14,
-                name: "Manicotti",
-                description: "Large pasta tubes for stuffing",
-                price: 9.90,
+                name: "Angel Hair Spaghetti",
+                description: "Delicate, thin pasta",
+                price: 4.30,
                 size: "16oz package",
                 category: "pasta",
-                image: "🍝",
+                image: "https://images.unsplash.com/photo-1551462147-37abc2011f97?w=300&h=200&fit=crop&crop=center&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"]
             },
             {
                 id: 15,
-                name: "Stuffed Shells",
-                description: "Large shells filled with cheese blend",
-                price: 6.10,
-                size: "18oz package",
-                category: "baked",
-                image: "🐚",
+                name: "Linguine",
+                description: "Flat, narrow pasta ideal for seafood",
+                price: 4.30,
+                size: "16oz package",
+                category: "pasta",
+                image: "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=300&h=200&fit=crop&crop=center&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"]
             },
             {
                 id: 16,
-                name: "Family Size Lasagna",
-                description: "Family size, ready to bake",
-                price: 13.90,
-                size: "32oz family size",
-                category: "baked",
-                image: "🏠",
-                badges: ["popular"],
-                tags: []
+                name: "Fettuccini",
+                description: "Wide, flat ribbon pasta",
+                price: 4.30,
+                size: "16oz package",
+                category: "pasta",
+                image: "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=300&h=200&fit=crop&crop=center&q=80",
+                badges: ["vegetarian"],
+                tags: ["vegetarian"]
             },
+            // GNOCCHI & SPECIALTY PASTA
             {
                 id: 17,
-                name: "Party Size Lasagna",
-                description: "Party size for large gatherings",
-                price: 25.60,
-                size: "64oz party size",
-                category: "baked",
-                image: "🎉",
-                badges: [],
-                tags: []
+                name: "Potato Gnocchi",
+                description: "Traditional potato dumplings",
+                price: 5.40,
+                size: "16oz package",
+                category: "pasta",
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop&crop=center&q=80",
+                badges: ["vegetarian"],
+                tags: ["vegetarian"]
             },
             {
                 id: 18,
-                name: "Fresh Lasagna Sheets",
-                description: "Make your own lasagna",
-                price: 9.50,
+                name: "Cheese Gnocchi",
+                description: "Enriched with premium cheese",
+                price: 5.90,
                 size: "16oz package",
                 category: "pasta",
-                image: "📄",
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop&crop=center&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"]
             },
             {
                 id: 19,
-                name: "Italian Sausage Links",
-                description: "Pre-formed links, ready to cook",
-                price: 8.80,
-                size: "2lb package",
-                category: "sausage",
-                image: "🌭",
-                badges: ["popular"],
-                tags: []
-            },
-            {
-                id: 20,
-                name: "Italian Sausage (Bulk)",
-                description: "Perfect for large gatherings",
-                price: 14.75,
-                size: "5lb package",
-                category: "sausage",
-                image: "🥩",
-                badges: [],
-                tags: []
-            },
-            {
-                id: 21,
-                name: "Homemade Marinara (Pint)",
-                description: "Traditional marinara sauce",
-                price: 4.80,
-                size: "16oz container",
-                category: "sauce",
-                image: "🍅",
+                name: "Manicotti",
+                description: "Large pasta tubes for stuffing",
+                price: 9.90,
+                size: "16oz package",
+                category: "pasta",
+                image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300&h=200&fit=crop&crop=center&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"]
             },
             {
+                id: 20,
+                name: "Cheese Tortellini",
+                description: "Ring-shaped pasta with cheese filling",
+                price: 7.20,
+                size: "16oz package",
+                category: "pasta",
+                image: "https://images.unsplash.com/photo-1587740908075-9e245070dfaa?w=300&h=200&fit=crop&crop=center&q=80",
+                badges: ["vegetarian"],
+                tags: ["vegetarian"]
+            },
+            {
+                id: 21,
+                name: "Cheese Tortellini (Family Size)",
+                description: "Large format for big appetites",
+                price: 16.00,
+                size: "6ct bulk package",
+                category: "pasta",
+                image: "https://images.unsplash.com/photo-1587740908075-9e245070dfaa?w=300&h=200&fit=crop&crop=center&q=80",
+                badges: [],
+                tags: ["vegetarian"]
+            },
+            // READY-TO-BAKE
+            {
                 id: 22,
-                name: "Homemade Marinara (Quart)",
-                description: "Family size portion",
-                price: 8.35,
-                size: "32oz container",
-                category: "sauce",
-                image: "🍅",
+                name: "Stuffed Shells",
+                description: "Large shells filled with cheese blend",
+                price: 6.10,
+                size: "18oz package",
+                category: "baked",
+                image: "https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?w=300&h=200&fit=crop&crop=center&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"]
             },
             {
                 id: 23,
-                name: "Vodka Sauce",
-                description: "Traditional vodka cream sauce",
-                price: 6.95,
-                size: "32oz container",
-                category: "sauce",
-                image: "🍷",
-                badges: ["popular", "vegetarian"],
-                tags: ["vegetarian"]
+                name: "2lb Lasagna",
+                description: "Family size, ready to bake",
+                price: 13.90,
+                size: "32oz family size",
+                category: "baked",
+                image: "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=300&h=200&fit=crop&crop=center&q=80",
+                badges: ["popular"],
+                tags: []
             },
             {
                 id: 24,
-                name: "Rose Sauce",
-                description: "Creamy tomato and cream sauce blend",
-                price: 6.95,
-                size: "32oz container",
-                category: "sauce",
-                image: "🌹",
-                badges: ["vegetarian"],
-                tags: ["vegetarian"]
+                name: "4lb Lasagna",
+                description: "Party size for large gatherings",
+                price: 25.60,
+                size: "64oz party size",
+                category: "baked",
+                image: "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=300&h=200&fit=crop&crop=center&q=80",
+                badges: [],
+                tags: []
             },
             {
                 id: 25,
-                name: "Roasted Pepper Sauce",
-                description: "Rich roasted red pepper sauce",
-                price: 7.05,
-                size: "32oz container",
+                name: "Fresh Lasagna Skins",
+                description: "Make your own lasagna",
+                price: 9.50,
+                size: "16oz package",
+                category: "pasta",
+                image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300&h=200&fit=crop&crop=center&q=80",
+                badges: ["vegetarian"],
+                tags: ["vegetarian"]
+            },
+            // ITALIAN SAUSAGE
+            {
+                id: 26,
+                name: "Italian Sausage (Small)",
+                description: "Traditional Italian seasoning",
+                price: 7.70,
+                size: "2lb package",
+                category: "sausage",
+                image: "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=300&h=200&fit=crop&crop=center&q=80",
+                badges: [],
+                tags: []
+            },
+            {
+                id: 27,
+                name: "Italian Sausage Links",
+                description: "Pre-formed links, ready to cook",
+                price: 8.80,
+                size: "2lb package",
+                category: "sausage",
+                image: "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=300&h=200&fit=crop&crop=center&q=80",
+                badges: ["popular"],
+                tags: []
+            },
+            {
+                id: 28,
+                name: "Italian Sausage (Bulk)",
+                description: "Perfect for large gatherings",
+                price: 14.75,
+                size: "5lb package",
+                category: "sausage",
+                image: "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=300&h=200&fit=crop&crop=center&q=80",
+                badges: [],
+                tags: []
+            },
+            // SAUCES & EXTRAS
+            {
+                id: 29,
+                name: "Homemade Sauce (Pints)",
+                description: "Traditional marinara sauce",
+                price: 4.80,
+                size: "16oz container",
                 category: "sauce",
-                image: "🫑",
+                image: "https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?w=300&h=200&fit=crop&crop=center&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"]
             },
             {
-                id: 26,
+                id: 30,
+                name: "Homemade Sauce (Quarts)",
+                description: "Family size portion",
+                price: 8.35,
+                size: "32oz container",
+                category: "sauce",
+                image: "https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?w=300&h=200&fit=crop&crop=center&q=80",
+                badges: ["vegetarian"],
+                tags: ["vegetarian"]
+            },
+            {
+                id: 31,
                 name: "Gourmet Meatballs",
                 description: "Hand-rolled, seasoned perfectly",
                 price: 16.10,
                 size: "24oz package",
                 category: "sauce",
-                image: "🧄",
+                image: "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=300&h=200&fit=crop&crop=center&q=80",
                 badges: ["popular"],
+                tags: []
+            },
+            {
+                id: 32,
+                name: "Roasted Pepper Sauce",
+                description: "Rich roasted red pepper sauce",
+                price: 7.05,
+                size: "32oz container",
+                category: "sauce",
+                image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=300&h=200&fit=crop&crop=center&q=80",
+                badges: ["vegetarian"],
+                tags: ["vegetarian"]
+            },
+            {
+                id: 33,
+                name: "Rose Sauce",
+                description: "Creamy tomato and cream sauce blend",
+                price: 6.95,
+                size: "32oz container",
+                category: "sauce",
+                image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=300&h=200&fit=crop&crop=center&q=80",
+                badges: ["vegetarian"],
+                tags: ["vegetarian"]
+            },
+            {
+                id: 34,
+                name: "Vodka Sauce",
+                description: "Traditional vodka cream sauce",
+                price: 6.95,
+                size: "32oz container",
+                category: "sauce",
+                image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=300&h=200&fit=crop&crop=center&q=80",
+                badges: ["popular", "vegetarian"],
+                tags: ["vegetarian"]
+            },
+            {
+                id: 35,
+                name: "Custom Orders",
+                description: "Special requests welcome",
+                price: 0,
+                size: "Call for pricing",
+                category: "sauce",
+                image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=300&h=200&fit=crop&crop=center&q=80",
+                badges: [],
                 tags: []
             }
         ];
@@ -1041,9 +1141,12 @@
                 return `<span class="badge ${badgeClass}">${badge}</span>`;
             }).join('');
 
+            // Handle pricing display
+            const priceDisplay = item.price === 0 ? 'Call' : `$${item.price.toFixed(2)}`;
+
             card.innerHTML = `
                 <div class="product-image">
-                    ${item.image}
+                    <img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.style.display='none'; this.parentNode.style.justifyContent='center'; this.parentNode.innerHTML='<div style=\"font-size: 4rem;\">🍝</div>';">
                     <div class="product-badges">${badges}</div>
                 </div>
                 <div class="product-info">
@@ -1051,15 +1154,19 @@
                     <p class="product-description">${item.description}</p>
                     <div class="product-details">
                         <span class="product-size">${item.size}</span>
-                        <span class="product-price">$${item.price.toFixed(2)}</span>
+                        <span class="product-price">${priceDisplay}</span>
                     </div>
                     <div class="product-actions">
+                        ${item.price > 0 ? `
                         <div class="quantity-selector">
                             <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
                             <input type="number" class="quantity-input" id="qty-${item.id}" value="1" min="1" max="20">
                             <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
                         </div>
                         <button class="add-to-cart" onclick="addToCart(${item.id})">Add to Cart</button>
+                        ` : `
+                        <button class="add-to-cart" onclick="contactForCustomOrder()" style="width: 100%;">Contact for Quote</button>
+                        `}
                     </div>
                 </div>
             `;
@@ -1208,7 +1315,7 @@
 
             if (filterValue !== 'all') {
                 filteredItems = menuItems.filter(item => {
-                    if (filterValue === 'vegetarian' || filterValue === 'gluten-free') {
+                    if (filterValue === 'vegetarian') {
                         return item.tags.includes(filterValue);
                     }
                     return item.category === filterValue;
@@ -1216,6 +1323,11 @@
             }
 
             renderMenuItems(filteredItems);
+        }
+
+        // Contact for custom order
+        function contactForCustomOrder() {
+            alert('Please contact us at info@jerseyjems.com or (843) 555-JEMS for custom order pricing and availability.');
         }
 
         // Proceed to checkout
