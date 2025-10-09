@@ -1124,8 +1124,12 @@
             const local = localImageMap[item.name];
             if (local) return local;
 
+            // Always use local curated images if present
+            if (localImageMap[item.name]) return localImageMap[item.name];
+            // Fallback: curated external image map
             const mapped = imageMap[item.name];
             if (mapped) return mapped;
+            // Last resort: generated placeholder
             return getPlaceholderDataURI(item.name, item.category.charAt(0).toUpperCase() + item.category.slice(1));
         }
 
