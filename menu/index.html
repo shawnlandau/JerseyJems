@@ -24,7 +24,7 @@
         .menu-hero {
             height: 40vh;
             background: linear-gradient(rgba(178, 34, 34, 0.8), rgba(210, 105, 30, 0.7)), 
-                        url('https://images.unsplash.com/?w=1920&h=800&fit=crop&q=85') center/cover;
+                        url('https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=1920&h=800&q=85') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -522,7 +522,7 @@
     <nav class="navbar" id="navbar">
         <div class="container">
             <div class="nav-brand">
-                <img src="https://page.gensparksite.com/v1/base64_upload/24a0133849be5cd3312001c2bccfadbe" alt="Jersey Jems Logo" class="logo">
+                <img src="/css/logo.svg" alt="Jersey Jems Logo" class="logo">
                 <h1>Jersey Jems</h1>
             </div>
             <ul class="nav-menu" id="nav-menu">
@@ -611,7 +611,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-brand">
-                        <img src="https://page.gensparksite.com/v1/base64_upload/24a0133849be5cd3312001c2bccfadbe" alt="Jersey Jems Logo" class="logo">
+                        <img src="/css/logo.svg" alt="Jersey Jems Logo" class="logo">
                         <h3>Jersey Jems</h3>
                     </div>
                     <p>Authentic Northeast Italian specialties from family kitchens to your table.</p>
@@ -1020,52 +1020,76 @@
             }
         ];
 
+        // Generate an SVG placeholder as a data URI (guaranteed to load and accurately labeled)
+        function getPlaceholderDataURI(title, subtitle) {
+            const svg = `<?xml version="1.0" encoding="UTF-8"?>
+            <svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'>
+              <defs>
+                <linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
+                  <stop offset='0%' stop-color='#f8f3ea'/>
+                  <stop offset='100%' stop-color='#efe7dc'/>
+                </linearGradient>
+              </defs>
+              <rect width='100%' height='100%' fill='url(#g)'/>
+              <g font-family='Inter, Arial, sans-serif' fill='#B22222'>
+                <text x='50%' y='48%' font-size='44' font-weight='700' text-anchor='middle'>${title.replace(/&/g,'&amp;')}</text>
+                <text x='50%' y='58%' font-size='22' fill='#8b3a3a' text-anchor='middle'>${subtitle.replace(/&/g,'&amp;')}</text>
+              </g>
+              <g opacity='0.08'>
+                <text x='50%' y='92%' font-size='18' text-anchor='middle' fill='#000'>Jersey Jems</text>
+              </g>
+            </svg>`;
+            return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+        }
+
         // Get product image based on item details
         function getProductImage(item) {
-            // Default images based on category and specific items
+            // Prefer curated images where available; otherwise fall back to an on-brand, labeled SVG
             const imageMap = {
                 // Ravioli items
-                'Half Moon Ravioli': 'https://images.unsplash.com/photo-1587740908075-9e245070dfaa?w=400&h=300&fit=crop&auto=format&q=85',
-                'Jumbo Ravioli': 'https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop&auto=format&q=85',
-                'Spinach & Cheese Ravioli': 'https://images.unsplash.com/photo-1604909052743-94e838986d24?w=400&h=300&fit=crop&auto=format&q=85',
-                'Five Cheese Ravioli': 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&h=300&fit=crop&auto=format&q=85',
-                'Lobster Ravioli': 'https://images.unsplash.com/photo-1563379091339-03246963d7d3?w=400&h=300&fit=crop&auto=format&q=85',
-                'Broccoli Rabe Ravioli': 'https://images.unsplash.com/photo-1604909052743-94e838986d24?w=400&h=300&fit=crop&auto=format&q=85',
-                
+                'Half Moon Ravioli': 'https://images.unsplash.com/photo-1587740908075-9e245070dfaa?w=800&h=600&fit=crop&auto=format&q=80',
+                'Jumbo Ravioli': 'https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=800&h=600&fit=crop&auto=format&q=80',
+                'Spinach & Cheese Ravioli': 'https://images.unsplash.com/photo-1604909052743-94e838986d24?w=800&h=600&fit=crop&auto=format&q=80',
+                'Five Cheese Ravioli': 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800&h=600&fit=crop&auto=format&q=80',
+                'Lobster Ravioli': 'https://images.unsplash.com/photo-1563379091339-03246963d7d3?w=800&h=600&fit=crop&auto=format&q=80',
+                'Broccoli Rabe Ravioli': 'https://images.unsplash.com/photo-1604909052743-94e838986d24?w=800&h=600&fit=crop&auto=format&q=80',
+
                 // Fresh Pasta items
-                'Fresh Spaghetti': 'https://images.unsplash.com/photo-1516100882582-96c3a05fe590?w=400&h=300&fit=crop&auto=format&q=85',
-                'Angel Hair Pasta': 'https://images.unsplash.com/photo-1551462147-37abc2011f97?w=400&h=300&fit=crop&auto=format&q=85',
-                'Fresh Linguine': 'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=400&h=300&fit=crop&auto=format&q=85',
-                'Fresh Fettuccine': 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400&h=300&fit=crop&auto=format&q=85',
-                'Potato Gnocchi': 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&auto=format&q=85',
-                'Cheese Gnocchi': 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&auto=format&q=85',
-                'Cheese Tortellini': 'https://images.unsplash.com/photo-1555507036-ab794f77665a?w=400&h=300&fit=crop&auto=format&q=85',
-                'Fresh Lasagna Sheets': 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400&h=300&fit=crop&auto=format&q=85',
-                'Manicotti Shells': 'https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?w=400&h=300&fit=crop&auto=format&q=85',
-                
+                'Fresh Spaghetti': 'https://images.unsplash.com/photo-1516100882582-96c3a05fe590?w=800&h=600&fit=crop&auto=format&q=80',
+                'Angel Hair Pasta': 'https://images.unsplash.com/photo-1551462147-37abc2011f97?w=800&h=600&fit=crop&auto=format&q=80',
+                'Fresh Linguine': 'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=800&h=600&fit=crop&auto=format&q=80',
+                'Fresh Fettuccine': 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=800&h=600&fit=crop&auto=format&q=80',
+                'Potato Gnocchi': 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop&auto=format&q=80',
+                'Cheese Gnocchi': 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop&auto=format&q=80',
+                'Cheese Tortellini': 'https://images.unsplash.com/photo-1555507036-ab794f77665a?w=800&h=600&fit=crop&auto=format&q=80',
+                'Fresh Lasagna Sheets': 'https://images.unsplash.com/photo-1556909212-d6c1d2d91513?w=800&h=600&fit=crop&auto=format&q=80',
+                'Manicotti Shells': 'https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?w=800&h=600&fit=crop&auto=format&q=80',
+
                 // Ready-to-Bake items
-                'Family Lasagna': 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400&h=300&fit=crop&auto=format&q=85',
-                'Party Lasagna': 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400&h=300&fit=crop&auto=format&q=85',
-                'Stuffed Shells': 'https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?w=400&h=300&fit=crop&auto=format&q=85',
-                'Baked Ziti Tray': 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop&auto=format&q=85',
-                
+                'Family Lasagna': 'https://images.unsplash.com/photo-1603133871918-59d3e4f55e93?w=800&h=600&fit=crop&auto=format&q=80',
+                'Party Lasagna': 'https://images.unsplash.com/photo-1603133871918-59d3e4f55e93?w=800&h=600&fit=crop&auto=format&q=80',
+                'Stuffed Shells': 'https://images.unsplash.com/photo-1601050690597-9f88b7f52b78?w=800&h=600&fit=crop&auto=format&q=80',
+                'Baked Ziti Tray': 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=800&h=600&fit=crop&auto=format&q=80',
+
                 // Sausage items
-                'Sweet Italian Sausage': 'https://images.unsplash.com/photo-1606728035253-49e8a23146de?w=400&h=300&fit=crop&auto=format&q=85',
-                'Hot Italian Sausage': 'https://images.unsplash.com/photo-1606728035253-49e8a23146de?w=400&h=300&fit=crop&auto=format&q=85',
-                'Bulk Italian Sausage': 'https://images.unsplash.com/photo-1559557831-1a41a2b64901?w=400&h=300&fit=crop&auto=format&q=85',
-                
-                // Sauce items
-                'Homemade Marinara': 'https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?w=400&h=300&fit=crop&auto=format&q=85',
-                'Vodka Sauce': 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop&auto=format&q=85',
-                'Rose Sauce': 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop&auto=format&q=85',
-                'Roasted Red Pepper Sauce': 'https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=400&h=300&fit=crop&auto=format&q=85',
-                'Meat Sauce': 'https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?w=400&h=300&fit=crop&auto=format&q=85',
-                'Pesto Sauce': 'https://images.unsplash.com/photo-1505253758473-96b7015fcd40?w=400&h=300&fit=crop&auto=format&q=85',
-                'Alfredo Sauce': 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop&auto=format&q=85',
-                'Gourmet Meatballs': 'https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop&auto=format&q=85'
+                'Sweet Italian Sausage': 'https://images.unsplash.com/photo-1606728035253-49e8a23146de?w=800&h=600&fit=crop&auto=format&q=80',
+                'Hot Italian Sausage': 'https://images.unsplash.com/photo-1606728035253-49e8a23146de?w=800&h=600&fit=crop&auto=format&q=80',
+                'Bulk Italian Sausage': 'https://images.unsplash.com/photo-1559557831-1a41a2b64901?w=800&h=600&fit=crop&auto=format&q=80',
+
+                // Sauce items (choose visuals that clearly depict sauces/jars)
+                'Homemade Marinara': 'https://images.unsplash.com/photo-1543352632-5a2646d91b06?w=800&h=600&fit=crop&auto=format&q=80',
+                'Vodka Sauce': 'https://images.unsplash.com/photo-1625947090638-03b53cd3a5cf?w=800&h=600&fit=crop&auto=format&q=80',
+                'Rose Sauce': 'https://images.unsplash.com/photo-1604908177223-17f34eb0b4e6?w=800&h=600&fit=crop&auto=format&q=80',
+                'Roasted Red Pepper Sauce': 'https://images.unsplash.com/photo-1509460913899-35f7eaf1c258?w=800&h=600&fit=crop&auto=format&q=80',
+                'Meat Sauce': 'https://images.unsplash.com/photo-1604908177223-17f34eb0b4e6?w=800&h=600&fit=crop&auto=format&q=80',
+                'Pesto Sauce': 'https://images.unsplash.com/photo-1505253758473-96b7015fcd40?w=800&h=600&fit=crop&auto=format&q=80',
+                'Alfredo Sauce': 'https://images.unsplash.com/photo-1521389508051-d7ffb5dc8bbf?w=800&h=600&fit=crop&auto=format&q=80',
+                'Gourmet Meatballs': 'https://images.unsplash.com/photo-1544025162-d76694265947?w=800&h=600&fit=crop&auto=format&q=80'
             };
-            
-            return imageMap[item.name] || 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop&auto=format&q=85';
+
+            const mapped = imageMap[item.name];
+            if (mapped) return mapped;
+            return getPlaceholderDataURI(item.name, item.category.charAt(0).toUpperCase() + item.category.slice(1));
         }
 
         // Shopping Cart
