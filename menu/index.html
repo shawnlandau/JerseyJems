@@ -156,6 +156,10 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
             border: 1px solid #f0f0f0;
+            height: auto;
+            min-height: 450px;
+            display: flex;
+            flex-direction: column;
         }
 
         .product-card:hover {
@@ -175,6 +179,23 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.3s ease;
+            background-color: #f8f8f8;
+            border-radius: 0;
+        }
+        
+        .product-image img[src*="data:image"] {
+            object-fit: contain;
+            background-color: #f8f8f8;
+        }
+        
+        .fallback-image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            background: linear-gradient(135deg, #f8f8f8, #eeeeee);
+            text-align: center;
         }
 
         .product-card:hover .product-image img {
@@ -209,6 +230,9 @@
 
         .product-info {
             padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .product-title {
@@ -253,6 +277,7 @@
             display: flex;
             align-items: center;
             gap: 1rem;
+            margin-top: auto;
         }
 
         .quantity-selector {
@@ -1042,7 +1067,7 @@
 
             card.innerHTML = `
                 <div class="product-image">
-                    <img src="${item.image}" alt="${item.alt}" loading="lazy">
+                    <img src="${item.image}" alt="${item.alt}" loading="lazy" onerror="this.onerror=null; this.style.display='none'; this.parentNode.innerHTML='<div class=\"fallback-image\"><i class=\"fas fa-utensils\" style=\"font-size: 4rem; color: #B22222; margin-top: 4rem;\"></i><p style=\"margin-top: 1rem; color: #666;\">Image Loading...</p></div>';">
                     <div class="product-badges">${badges}</div>
                 </div>
                 <div class="product-info">
