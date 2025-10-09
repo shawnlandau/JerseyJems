@@ -38,23 +38,29 @@ document.addEventListener('DOMContentLoaded', function() {
         lastScrollTop = currentScrollTop;
     });
 
-    // Smooth scrolling for navigation links
+    // Smooth scrolling for navigation links (only for anchor links)
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
+            const href = this.getAttribute('href');
             
-            const targetId = this.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
-            
-            if (targetSection) {
-                const navbarHeight = navbar.offsetHeight;
-                const targetPosition = targetSection.offsetTop - navbarHeight;
+            // Only prevent default for anchor links (starting with #)
+            if (href.startsWith('#')) {
+                e.preventDefault();
                 
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+                const targetId = href.substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    const navbarHeight = navbar.offsetHeight;
+                    const targetPosition = targetSection.offsetTop - navbarHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             }
+            // For external links like "menu/", let the browser handle them normally
         });
     });
 
@@ -266,14 +272,17 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(element);
     });
 
-    // Hero buttons smooth scroll
+    // Hero buttons smooth scroll (only for anchor links)
     const heroButtons = document.querySelectorAll('.hero-buttons .btn');
     heroButtons.forEach(button => {
-        if (button.getAttribute('href').startsWith('#')) {
-            button.addEventListener('click', function(e) {
+        button.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Only handle smooth scrolling for anchor links
+            if (href && href.startsWith('#')) {
                 e.preventDefault();
                 
-                const targetId = this.getAttribute('href').substring(1);
+                const targetId = href.substring(1);
                 const targetSection = document.getElementById(targetId);
                 
                 if (targetSection) {
@@ -285,8 +294,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         behavior: 'smooth'
                     });
                 }
-            });
-        }
+            }
+            // For external links like "menu/", let the browser handle them normally
+        });
     });
 
     // Lazy loading for images
