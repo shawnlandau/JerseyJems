@@ -24,7 +24,7 @@
         .menu-hero {
             height: 40vh;
             background: linear-gradient(rgba(178, 34, 34, 0.8), rgba(210, 105, 30, 0.7)), 
-                        url('https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=1920&h=800&q=85') center/cover;
+                        url('../images/hero/menu-hero.svg') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1020,6 +1020,40 @@
             }
         ];
 
+        // Map of local item images
+        const localImageMap = {
+            'Half Moon Ravioli': '../images/items/half-moon-ravioli.svg',
+            'Jumbo Ravioli': '../images/items/jumbo-ravioli.svg',
+            'Spinach & Cheese Ravioli': '../images/items/spinach-cheese-ravioli.svg',
+            'Five Cheese Ravioli': '../images/items/five-cheese-ravioli.svg',
+            'Lobster Ravioli': '../images/items/lobster-ravioli.svg',
+            'Broccoli Rabe Ravioli': '../images/items/broccoli-rabe-ravioli.svg',
+            'Fresh Spaghetti': '../images/items/fresh-spaghetti.svg',
+            'Angel Hair Pasta': '../images/items/angel-hair-pasta.svg',
+            'Fresh Linguine': '../images/items/fresh-linguine.svg',
+            'Fresh Fettuccine': '../images/items/fresh-fettuccine.svg',
+            'Potato Gnocchi': '../images/items/potato-gnocchi.svg',
+            'Cheese Gnocchi': '../images/items/cheese-gnocchi.svg',
+            'Cheese Tortellini': '../images/items/cheese-tortellini.svg',
+            'Fresh Lasagna Sheets': '../images/items/fresh-lasagna-sheets.svg',
+            'Manicotti Shells': '../images/items/manicotti-shells.svg',
+            'Family Lasagna': '../images/items/family-lasagna.svg',
+            'Party Lasagna': '../images/items/party-lasagna.svg',
+            'Stuffed Shells': '../images/items/stuffed-shells.svg',
+            'Baked Ziti Tray': '../images/items/baked-ziti-tray.svg',
+            'Sweet Italian Sausage': '../images/items/sweet-italian-sausage.svg',
+            'Hot Italian Sausage': '../images/items/hot-italian-sausage.svg',
+            'Bulk Italian Sausage': '../images/items/bulk-italian-sausage.svg',
+            'Homemade Marinara': '../images/items/homemade-marinara.svg',
+            'Vodka Sauce': '../images/items/vodka-sauce.svg',
+            'Rose Sauce': '../images/items/rose-sauce.svg',
+            'Roasted Red Pepper Sauce': '../images/items/roasted-red-pepper-sauce.svg',
+            'Meat Sauce': '../images/items/meat-sauce.svg',
+            'Pesto Sauce': '../images/items/pesto-sauce.svg',
+            'Alfredo Sauce': '../images/items/alfredo-sauce.svg',
+            'Gourmet Meatballs': '../images/items/gourmet-meatballs.svg',
+        };
+
         // Generate an SVG placeholder as a data URI (guaranteed to load and accurately labeled)
         function getPlaceholderDataURI(title, subtitle) {
             const svg = `<?xml version="1.0" encoding="UTF-8"?>
@@ -1044,7 +1078,7 @@
 
         // Get product image based on item details
         function getProductImage(item) {
-            // Prefer curated images where available; otherwise fall back to an on-brand, labeled SVG
+            // Prefer local curated images; otherwise fall back to on-brand, labeled SVG
             const imageMap = {
                 // Ravioli items
                 'Half Moon Ravioli': 'https://images.unsplash.com/photo-1587740908075-9e245070dfaa?w=800&h=600&fit=crop&auto=format&q=80',
@@ -1086,6 +1120,9 @@
                 'Alfredo Sauce': 'https://images.unsplash.com/photo-1521389508051-d7ffb5dc8bbf?w=800&h=600&fit=crop&auto=format&q=80',
                 'Gourmet Meatballs': 'https://images.unsplash.com/photo-1544025162-d76694265947?w=800&h=600&fit=crop&auto=format&q=80'
             };
+
+            const local = localImageMap[item.name];
+            if (local) return local;
 
             const mapped = imageMap[item.name];
             if (mapped) return mapped;
