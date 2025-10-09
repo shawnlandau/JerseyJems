@@ -157,7 +157,7 @@
             transition: all 0.3s ease;
             border: 1px solid #f0f0f0;
             height: auto;
-            min-height: 450px;
+            min-height: 380px;
             display: flex;
             flex-direction: column;
         }
@@ -168,34 +168,37 @@
         }
 
         .product-image {
-            height: 220px;
+            height: 180px;
             overflow: hidden;
             position: relative;
-            background: #f8f8f8;
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            background-color: #f8f8f8;
-            border-radius: 0;
-        }
-        
-        .product-image img[src*="data:image"] {
-            object-fit: contain;
-            background-color: #f8f8f8;
-        }
-        
-        .fallback-image {
+            background: linear-gradient(135deg, var(--background-cream), #f5f5f5);
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
+        }
+
+        .category-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #f8f8f8, #eeeeee);
-            text-align: center;
+            font-size: 4rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover .category-icon {
+            transform: scale(1.1);
+        }
+        
+        .category-icon i {
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover .category-icon i {
+            opacity: 1;
+            transform: rotate(5deg);
         }
 
         .product-card:hover .product-image img {
@@ -651,7 +654,7 @@
     </footer>
 
     <script>
-        // Menu Data with High-Quality, Accurate Images - All Verified Working
+        // Menu Data with Category Icons - Clean, Fast Loading Design
         const menuItems = [
             // FRESH RAVIOLI COLLECTION
             {
@@ -661,7 +664,7 @@
                 price: 7.85,
                 size: "13oz package (approx. 12 pieces)",
                 category: "ravioli",
-                image: "https://images.unsplash.com/photo-1589302168068-964664d93dc0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+
                 badges: ["popular"],
                 tags: ["vegetarian"],
                 alt: "Fresh half-moon shaped ravioli with ricotta filling"
@@ -673,7 +676,7 @@
                 price: 8.25,
                 size: "16oz package (8-10 pieces)",
                 category: "ravioli",
-                image: "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1621996346565-e3dbc353d2e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: [],
                 tags: ["vegetarian"],
                 alt: "Large square ravioli pasta with cheese filling"
@@ -685,7 +688,7 @@
                 price: 8.55,
                 size: "16oz package (8-10 pieces)",
                 category: "ravioli",
-                image: "https://images.unsplash.com/photo-1604909052743-94e838986d24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1604909052743-94e838986d24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"],
                 alt: "Green spinach and cheese filled ravioli"
@@ -697,7 +700,7 @@
                 price: 9.25,
                 size: "18oz package (10-12 pieces)",
                 category: "ravioli",
-                image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: ["popular", "vegetarian"],
                 tags: ["vegetarian"],
                 alt: "Five cheese ravioli with premium Italian cheeses"
@@ -709,7 +712,7 @@
                 price: 12.95,
                 size: "12oz package (6-8 pieces)",
                 category: "ravioli",
-                image: "https://images.unsplash.com/photo-1563379091339-03246963d7d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1563379091339-03246963d7d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: ["popular"],
                 tags: [],
                 alt: "Gourmet lobster ravioli with seafood filling"
@@ -721,7 +724,7 @@
                 price: 8.95,
                 size: "16oz package (8-10 pieces)",
                 category: "ravioli",
-                image: "https://images.unsplash.com/photo-1604909052743-94e838986d24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1604909052743-94e838986d24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"],
                 alt: "Broccoli rabe and ricotta ravioli"
@@ -735,7 +738,7 @@
                 price: 4.30,
                 size: "16oz package",
                 category: "pasta",
-                image: "https://images.unsplash.com/photo-1516100882582-96c3a05fe590?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1516100882582-96c3a05fe590?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"],
                 alt: "Fresh homemade spaghetti pasta"
@@ -747,7 +750,7 @@
                 price: 4.30,
                 size: "16oz package",
                 category: "pasta",
-                image: "https://images.unsplash.com/photo-1551462147-37abc2011f97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1551462147-37abc2011f97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"],
                 alt: "Thin angel hair pasta strands"
@@ -759,7 +762,7 @@
                 price: 4.30,
                 size: "16oz package",
                 category: "pasta",
-                image: "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1473093295043-cdd812d0e601?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"],
                 alt: "Fresh linguine pasta noodles"
@@ -771,7 +774,7 @@
                 price: 4.30,
                 size: "16oz package",
                 category: "pasta",
-                image: "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1574894709920-11b28e7367e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"],
                 alt: "Wide ribbon fettuccine pasta"
@@ -783,7 +786,7 @@
                 price: 5.40,
                 size: "16oz package",
                 category: "pasta",
-                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"],
                 alt: "Homemade potato gnocchi dumplings"
@@ -795,7 +798,7 @@
                 price: 5.90,
                 size: "16oz package",
                 category: "pasta",
-                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"],
                 alt: "Cheese-enriched gnocchi pasta"
@@ -807,7 +810,7 @@
                 price: 7.20,
                 size: "16oz package",
                 category: "pasta",
-                image: "https://images.unsplash.com/photo-1555507036-ab794f77665a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1555507036-ab794f77665a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"],
                 alt: "Ring-shaped cheese tortellini pasta"
@@ -819,7 +822,7 @@
                 price: 5.50,
                 size: "16oz package",
                 category: "pasta",
-                image: "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1574894709920-11b28e7367e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"],
                 alt: "Fresh lasagna pasta sheets"
@@ -831,7 +834,7 @@
                 price: 6.90,
                 size: "16oz package",
                 category: "pasta",
-                image: "https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1572453800999-e8d2d1589b7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"],
                 alt: "Large manicotti pasta shells for stuffing"
@@ -845,7 +848,7 @@
                 price: 16.90,
                 size: "3lb tray (serves 6-8)",
                 category: "baked",
-                image: "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1574894709920-11b28e7367e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: ["popular"],
                 tags: [],
                 alt: "Family-size lasagna ready to bake"
@@ -857,7 +860,7 @@
                 price: 28.90,
                 size: "5lb tray (serves 12-15)",
                 category: "baked",
-                image: "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1574894709920-11b28e7367e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: [],
                 tags: [],
                 alt: "Large party-size lasagna tray"
@@ -869,7 +872,7 @@
                 price: 12.10,
                 size: "24oz tray (12 shells)",
                 category: "baked",
-                image: "https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1572453800999-e8d2d1589b7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"],
                 alt: "Cheese-stuffed pasta shells ready to bake"
@@ -881,7 +884,7 @@
                 price: 14.50,
                 size: "2lb tray (serves 4-6)",
                 category: "baked",
-                image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1551183053-bf91a1d81141?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: [],
                 tags: [],
                 alt: "Baked ziti with meat sauce and cheese"
@@ -895,7 +898,7 @@
                 price: 8.70,
                 size: "2lb package",
                 category: "sausage",
-                image: "https://images.unsplash.com/photo-1606728035253-49e8a23146de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1606728035253-49e8a23146de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: ["popular"],
                 tags: [],
                 alt: "Sweet Italian sausage links"
@@ -907,7 +910,7 @@
                 price: 8.70,
                 size: "2lb package",
                 category: "sausage",
-                image: "https://images.unsplash.com/photo-1606728035253-49e8a23146de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1606728035253-49e8a23146de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: [],
                 tags: [],
                 alt: "Spicy hot Italian sausage links"
@@ -919,7 +922,7 @@
                 price: 15.75,
                 size: "5lb package",
                 category: "sausage",
-                image: "https://images.unsplash.com/photo-1559557831-1a41a2b64901?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1559557831-1a41a2b64901?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: [],
                 tags: [],
                 alt: "Bulk Italian sausage meat for cooking"
@@ -933,7 +936,7 @@
                 price: 6.80,
                 size: "32oz jar",
                 category: "sauce",
-                image: "https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1572453800999-e8d2d1589b7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: ["popular", "vegetarian"],
                 tags: ["vegetarian"],
                 alt: "Homemade marinara sauce in jar"
@@ -945,7 +948,7 @@
                 price: 8.95,
                 size: "32oz jar",
                 category: "sauce",
-                image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: ["popular", "vegetarian"],
                 tags: ["vegetarian"],
                 alt: "Creamy vodka sauce for pasta"
@@ -957,7 +960,7 @@
                 price: 7.95,
                 size: "32oz jar",
                 category: "sauce",
-                image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"],
                 alt: "Pink rose sauce for pasta"
@@ -969,7 +972,7 @@
                 price: 8.05,
                 size: "32oz jar",
                 category: "sauce",
-                image: "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1506084868230-bb9d95c24759?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"],
                 alt: "Roasted red pepper pasta sauce"
@@ -981,7 +984,7 @@
                 price: 9.50,
                 size: "32oz jar",
                 category: "sauce",
-                image: "https://images.unsplash.com/photo-1572453800999-e8d2d1589b7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1572453800999-e8d2d1589b7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: [],
                 tags: [],
                 alt: "Rich meat sauce with beef and sausage"
@@ -993,7 +996,7 @@
                 price: 9.95,
                 size: "16oz jar",
                 category: "sauce",
-                image: "https://images.unsplash.com/photo-1505253758473-96b7015fcd40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1505253758473-96b7015fcd40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"],
                 alt: "Fresh basil pesto sauce"
@@ -1005,7 +1008,7 @@
                 price: 8.50,
                 size: "32oz jar",
                 category: "sauce",
-                image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: ["vegetarian"],
                 tags: ["vegetarian"],
                 alt: "Creamy alfredo cheese sauce"
@@ -1017,7 +1020,7 @@
                 price: 16.10,
                 size: "2lb container (24 meatballs)",
                 category: "sauce",
-                image: "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
+photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80",
                 badges: ["popular"],
                 tags: [],
                 alt: "Homemade meatballs in marinara sauce"
@@ -1065,9 +1068,41 @@
                 `<span class="badge ${badge}">${badge}</span>`
             ).join('');
 
+            // Determine icon based on category
+            let categoryIcon = 'fas fa-utensils';
+            let categoryColor = '#B22222';
+            
+            switch(item.category) {
+                case 'ravioli':
+                    categoryIcon = 'fas fa-square';
+                    categoryColor = '#D2691E';
+                    break;
+                case 'pasta':
+                    categoryIcon = 'fas fa-scroll';
+                    categoryColor = '#FF6347';
+                    break;
+                case 'sauce':
+                    categoryIcon = 'fas fa-wine-bottle';
+                    categoryColor = '#8B4513';
+                    break;
+                case 'sausage':
+                    categoryIcon = 'fas fa-drumstick-bite';
+                    categoryColor = '#B22222';
+                    break;
+                case 'baked':
+                    categoryIcon = 'fas fa-fire';
+                    categoryColor = '#FF4500';
+                    break;
+                default:
+                    categoryIcon = 'fas fa-utensils';
+                    categoryColor = '#B22222';
+            }
+
             card.innerHTML = `
                 <div class="product-image">
-                    <img src="${item.image}" alt="${item.alt}" loading="lazy" onerror="this.onerror=null; this.style.display='none'; this.parentNode.innerHTML='<div class=\"fallback-image\"><i class=\"fas fa-utensils\" style=\"font-size: 4rem; color: #B22222; margin-top: 4rem;\"></i><p style=\"margin-top: 1rem; color: #666;\">Image Loading...</p></div>';">
+                    <div class="category-icon">
+                        <i class="${categoryIcon}" style="color: ${categoryColor};"></i>
+                    </div>
                     <div class="product-badges">${badges}</div>
                 </div>
                 <div class="product-info">
