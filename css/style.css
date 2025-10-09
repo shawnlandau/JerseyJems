@@ -407,6 +407,13 @@ p {
     font-size: 1.1rem;
 }
 
+.products-cta .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .products-cta .btn {
     background: var(--white);
     color: var(--primary-color);
@@ -414,12 +421,25 @@ p {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
+    flex: 0 1 auto;
+    min-width: 200px;
 }
 
 .products-cta .btn:hover {
     background: transparent;
     color: var(--white);
     border-color: var(--white);
+}
+
+.products-cta .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border-color: var(--white);
+}
+
+.products-cta .btn-secondary:hover {
+    background: var(--white);
+    color: var(--primary-color);
 }
 
 /* Contact Section */
