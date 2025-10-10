@@ -61,12 +61,6 @@
             flex-wrap: wrap;
             gap: 1.5rem;
         }
-        
-        .controls-right {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
 
         .filter-buttons {
             display: flex;
@@ -128,28 +122,6 @@
 
         .cart-toggle:hover {
             transform: scale(1.1);
-        }
-
-        .print-menu-btn {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            border-radius: 25px;
-            padding: 0.7rem 1.5rem;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .print-menu-btn:hover {
-            background: #c8691e;
-            transform: translateY(-2px);
         }
 
         .cart-count {
@@ -502,20 +474,6 @@
                 flex-direction: column;
                 align-items: stretch;
             }
-            
-            .controls-right {
-                justify-content: center;
-                margin-top: 1rem;
-            }
-            
-            .print-menu-btn {
-                font-size: 0.9rem;
-                padding: 0.6rem 1.2rem;
-            }
-            
-            .print-menu-btn span {
-                display: none;
-            }
 
             .filter-buttons {
                 justify-content: center;
@@ -555,164 +513,6 @@
 
             .product-price {
                 font-size: 1.3rem;
-            }
-        }
-
-        /* PRINT STYLES - Compact menu for handouts */
-        @media print {
-            /* Hide all non-essential elements */
-            nav, .menu-hero, .menu-controls, .footer, 
-            .product-image, .product-badges, .product-actions,
-            .cart-modal, .hamburger, .nav-menu {
-                display: none !important;
-            }
-
-            /* Reset page styling for print */
-            * {
-                background: white !important;
-                color: black !important;
-                box-shadow: none !important;
-                text-shadow: none !important;
-            }
-
-            body {
-                margin: 0;
-                padding: 15px;
-                font-family: Arial, sans-serif;
-                font-size: 11pt;
-                line-height: 1.3;
-                background: white !important;
-            }
-
-            /* Print header */
-            .menu-section::before {
-                content: "JERSEY JEMS MENU\AAUTHENTIC NORTHEAST ITALIAN SPECIALTIES\A\A";
-                white-space: pre;
-                display: block;
-                text-align: center;
-                font-weight: bold;
-                font-size: 16pt;
-                margin-bottom: 20px;
-                border-bottom: 2px solid black;
-                padding-bottom: 10px;
-            }
-
-            /* Compact grid layout for print */
-            .menu-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 8px;
-                padding: 0;
-                margin: 0;
-            }
-
-            /* Compact product cards */
-            .product-card {
-                background: white !important;
-                border: 1px solid #333;
-                border-radius: 0;
-                box-shadow: none;
-                margin: 0;
-                padding: 8px;
-                page-break-inside: avoid;
-                min-height: auto;
-                height: auto;
-                display: block;
-            }
-
-            .product-info {
-                padding: 0;
-                margin: 0;
-            }
-
-            .product-title {
-                font-size: 10pt;
-                font-weight: bold;
-                margin: 0 0 3px 0;
-                color: black !important;
-                line-height: 1.2;
-            }
-
-            /* Hide descriptions as requested */
-            .product-description {
-                display: none !important;
-            }
-
-            .product-details {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin: 3px 0 0 0;
-                padding: 0;
-                border: none;
-            }
-
-            .product-size {
-                font-size: 8pt;
-                color: #666 !important;
-                font-style: normal;
-            }
-
-            .product-price {
-                font-size: 10pt;
-                font-weight: bold;
-                color: black !important;
-            }
-
-            /* Add category headers */
-            .product-card[data-category="ravioli"]:first-of-type::before {
-                content: "FRESH RAVIOLI";
-                display: block;
-                font-weight: bold;
-                font-size: 12pt;
-                text-align: center;
-                margin: 15px 0 10px 0;
-                padding: 5px 0;
-                border-top: 1px solid black;
-                border-bottom: 1px solid black;
-                grid-column: 1 / -1;
-            }
-
-            /* Page break controls */
-            .product-card:nth-child(16),
-            .product-card:nth-child(32) {
-                page-break-after: always;
-            }
-
-            /* Ensure clean page breaks */
-            @page {
-                margin: 0.5in;
-                size: letter;
-            }
-
-            /* Contact info at bottom */
-            .menu-section::after {
-                content: "\A\AJERSEY JEMS | info@jerseyjems.com | Myrtle Beach, SC\AOrder 24-48 hours in advance | Pickup: Friday-Sunday 2PM-6PM";
-                white-space: pre;
-                display: block;
-                text-align: center;
-                font-size: 9pt;
-                margin-top: 20px;
-                padding-top: 15px;
-                border-top: 1px solid black;
-                page-break-inside: avoid;
-            }
-        }
-
-        /* Print-specific category grouping */
-        @media print {
-            .print-category-header {
-                display: block;
-                font-weight: bold;
-                font-size: 12pt;
-                text-align: left;
-                margin: 15px 0 8px 0;
-                padding: 3px 0;
-                border-bottom: 1px solid black;
-                grid-column: 1 / -1;
-                text-transform: uppercase;
-                background: #f0f0f0 !important;
-                padding-left: 5px;
             }
         }
     </style>
@@ -766,17 +566,10 @@
                     <i class="fas fa-search" style="color: #999;"></i>
                 </div>
                 
-                <div class="controls-right">
-                    <button class="print-menu-btn" id="printMenuBtn" aria-label="Print menu">
-                        <i class="fas fa-print"></i>
-                        <span>Print Menu</span>
-                    </button>
-                    
-                    <button class="cart-toggle" id="cartToggle" aria-label="View shopping cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-count" id="cartCount" style="display: none;">0</span>
-                    </button>
-                </div>
+                <button class="cart-toggle" id="cartToggle" aria-label="View shopping cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount" style="display: none;">0</span>
+                </button>
             </div>
         </div>
     </section>
@@ -1361,140 +1154,6 @@
             updateCartUI();
         });
 
-        // Print menu functionality
-        function printMenu() {
-            // Create print-friendly version with category grouping
-            const printWindow = window.open('', '_blank');
-            const printDocument = printWindow.document;
-            
-            // Group items by category
-            const categories = {
-                'ravioli': 'FRESH RAVIOLI',
-                'pasta': 'FRESH PASTA & GNOCCHI', 
-                'baked': 'READY-TO-BAKE SPECIALTIES',
-                'sausage': 'ITALIAN SAUSAGE',
-                'sauce': 'GOURMET SAUCES & MEATBALLS'
-            };
-            
-            let printHTML = `
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <title>Jersey Jems Menu - Print Version</title>
-                    <style>
-                        * { margin: 0; padding: 0; box-sizing: border-box; }
-                        body { 
-                            font-family: Arial, sans-serif; 
-                            font-size: 11pt; 
-                            line-height: 1.3; 
-                            padding: 15px;
-                            background: white;
-                        }
-                        .header {
-                            text-align: center;
-                            margin-bottom: 20px;
-                            padding-bottom: 10px;
-                            border-bottom: 2px solid black;
-                        }
-                        .header h1 { font-size: 18pt; margin-bottom: 5px; }
-                        .header p { font-size: 12pt; }
-                        .category {
-                            margin: 15px 0 8px 0;
-                            padding: 3px 5px;
-                            background: #f0f0f0;
-                            border-bottom: 1px solid black;
-                            font-weight: bold;
-                            font-size: 12pt;
-                        }
-                        .items-grid {
-                            display: grid;
-                            grid-template-columns: 1fr 1fr;
-                            gap: 8px;
-                            margin-bottom: 15px;
-                        }
-                        .item {
-                            border: 1px solid #333;
-                            padding: 8px;
-                            page-break-inside: avoid;
-                        }
-                        .item-name {
-                            font-weight: bold;
-                            font-size: 10pt;
-                            margin-bottom: 3px;
-                        }
-                        .item-details {
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-                        }
-                        .item-size {
-                            font-size: 8pt;
-                            color: #666;
-                        }
-                        .item-price {
-                            font-weight: bold;
-                            font-size: 10pt;
-                        }
-                        .footer {
-                            margin-top: 20px;
-                            padding-top: 15px;
-                            border-top: 1px solid black;
-                            text-align: center;
-                            font-size: 9pt;
-                            page-break-inside: avoid;
-                        }
-                        @page { margin: 0.5in; }
-                    </style>
-                </head>
-                <body>
-                    <div class="header">
-                        <h1>JERSEY JEMS MENU</h1>
-                        <p>AUTHENTIC NORTHEAST ITALIAN SPECIALTIES</p>
-                    </div>
-            `;
-            
-            // Add items grouped by category
-            Object.keys(categories).forEach(categoryKey => {
-                const categoryItems = menuItems.filter(item => item.category === categoryKey);
-                if (categoryItems.length > 0) {
-                    printHTML += `<div class="category">${categories[categoryKey]}</div>`;
-                    printHTML += `<div class="items-grid">`;
-                    
-                    categoryItems.forEach(item => {
-                        printHTML += `
-                            <div class="item">
-                                <div class="item-name">${item.name}</div>
-                                <div class="item-details">
-                                    <span class="item-size">${item.size}</span>
-                                    <span class="item-price">$${item.price.toFixed(2)}</span>
-                                </div>
-                            </div>
-                        `;
-                    });
-                    
-                    printHTML += `</div>`;
-                }
-            });
-            
-            printHTML += `
-                    <div class="footer">
-                        <div><strong>JERSEY JEMS</strong> | info@jerseyjems.com | Myrtle Beach, SC</div>
-                        <div>Order 24-48 hours in advance | Pickup: Friday-Sunday 2PM-6PM</div>
-                    </div>
-                </body>
-                </html>
-            `;
-            
-            printDocument.write(printHTML);
-            printDocument.close();
-            
-            // Wait for content to load then print
-            printWindow.onload = function() {
-                printWindow.print();
-                printWindow.close();
-            };
-        }
-
         // Render menu items
         function renderMenuItems(items) {
             menuGrid.innerHTML = '';
@@ -1579,12 +1238,6 @@
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', handleFilter);
             });
-
-            // Print menu button
-            const printMenuBtn = document.getElementById('printMenuBtn');
-            if (printMenuBtn) {
-                printMenuBtn.addEventListener('click', printMenu);
-            }
 
             // Mobile navigation
             const hamburger = document.getElementById('hamburger');
